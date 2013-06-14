@@ -1,0 +1,190 @@
+.infos-off {
+    display: none;
+}
+
+.title {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 70px;
+    height: 13px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 11px;
+    color: #fff;
+    text-align: center;
+
+    background-color: #000;
+    filter: alpha(opacity = 60);
+    opacity: 0.6;
+
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -khtml-border-radius: 13px;
+    border-radius: 13px;
+
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+}
+
+.title:hover {
+    filter: alpha(opacity = 100);
+    opacity: 1;
+    cursor: default;
+}
+
+.zoom {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 12px;
+    height: 13px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 13px;
+    color: #fff;
+    padding-bottom: 2px;
+    padding-left: 5px;
+
+    background-color: #000;
+    filter: alpha(opacity = 60);
+    opacity: 0.6;
+
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -khtml-border-radius: 13px;
+    border-radius: 13px;
+}
+
+.zoom:hover {
+    filter: alpha(opacity = 100);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.picker {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    width: 20px;
+    /*height: 80px;*/
+    /*border: 1px solid red;*/
+}
+
+.color {
+    opacity: 0;
+    display: none;
+    filter: alpha(opacity = 0);
+    width: 10px;
+    height: 10px;
+    margin-top: 2px;
+    background: transparent;
+    border: 4px solid rgba(0, 0, 0, .6);
+    -webkit-background-clip: padding-box; /* for Safari */
+    background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+
+    -moz-border-radius: 14px;
+    -webkit-border-radius: 14px;
+    -khtml-border-radius: 14px;
+    border-radius: 14px;
+
+    -webkit-transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+}
+
+.color:hover {
+    border: 4px solid rgba(0, 0, 0, 1);
+    cursor: pointer;
+}
+
+.color-mini {
+    width: 10px;
+    height: 10px;
+
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    border-radius: 12px;
+}
+
+.sizez {
+    position: absolute;
+    bottom: 5px;
+    right: 60px;
+    width: 23px;
+    height: 13px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 10px;
+    color: #fff;
+    padding-left: 5px;
+    background: #000 url(../img/arrow.png) no-repeat 15px 4px;
+    filter: alpha(opacity = 60);
+    opacity: 0.6;
+    padding-top: 1px;
+
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -khtml-border-radius: 13px;
+    border-radius: 13px;
+
+    -webkit-transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+
+}
+
+.sizez:hover {
+    filter: alpha(opacity = 100);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.size {
+    display: none;
+    height: 10px;
+    width: 23px;
+    /*cursor: default;*/
+}
+
+.price-container {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 50px;
+    height: 13px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+
+    background-color: #000;
+    filter: alpha(opacity = 60);
+    opacity: 0.6;
+
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -khtml-border-radius: 13px;
+    border-radius: 13px;
+
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+}
+
+.price-container:hover {
+    filter: alpha(opacity = 100);
+    opacity: 1;
+    cursor: pointer;
+}
+
+.price {
+    margin-top: 1px;
+    -webkit-transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+    transition: all 0.1s ease 0s;
+}

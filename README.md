@@ -1,4 +1,4 @@
 lipeste-ma
 ==========
 
-stickers
+Stickers!

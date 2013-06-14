@@ -1,0 +1,94 @@
+{
+    "patterns": [
+        {
+            "texts": ["png_1.png, png_2.png"],
+            "stickers": [
+                {
+                    "id": 1,
+                    "url": "ptn00.png",
+                    "topLeft": "0, 1"
+                },
+                {
+                    "id": 2,
+                    "url": "ptn01.png",
+                    "topLeft": "0, 127"
+                },
+                {
+                    "id": 3,
+                    "url": "ptn02.png",
+                    "topLeft": "56, 1"
+                },
+                {
+                    "id": 4,
+                    "url": "ptn03.png",
+                    "topLeft": "56, 188"
+                },
+                {
+                    "id": 5,
+                    "url": "ptn04.png",
+                    "topLeft": "95, 182"
+                },
+                {
+                    "id": 6,
+                    "url": "ptn05.png",
+                    "topLeft": "116, 0"
+                },
+                {
+                    "id": 7,
+                    "url": "ptn06.png",
+                    "topLeft": "165, 0"
+                },
+                {
+                    "id": 8,
+                    "url": "ptn07.png",
+                    "topLeft": "135, 133"
+                }
+            ]
+        },
+        {
+            "texts": ["png_1.png, png_2.png"],
+            "stickers": [
+                {
+                    "id": 1,
+                    "url": "ptn00.png",
+                    "topLeft": "0, 1"
+                },
+                {
+                    "id": 2,
+                    "url": "ptn01.png",
+                    "topLeft": "0, 127"
+                },
+                {
+                    "id": 3,
+                    "url": "ptn02.png",
+                    "topLeft": "56, 1"
+                },
+                {
+                    "id": 4,
+                    "url": "ptn03.png",
+                    "topLeft": "56, 188"
+                },
+                {
+                    "id": 5,
+                    "url": "ptn04.png",
+                    "topLeft": "95, 182"
+                },
+                {
+                    "id": 6,
+                    "url": "ptn05.png",
+                    "topLeft": "116, 0"
+                },
+                {
+                    "id": 7,
+                    "url": "ptn06.png",
+                    "topLeft": "165, 0"
+                },
+                {
+                    "id": 8,
+                    "url": "ptn07.png",
+                    "topLeft": "135, 133"
+                }
+            ]
+        }
+    ]
+}
