@@ -6,7 +6,7 @@
             "code": "CASTLE",
             "url": "castel.png",
             "price": [10, 20, 30],
-            "colors": ["rgb(255, 0,0)", "rgb(0, 255, 0)", "rgb(255,0,255)", "rgb(0, 0, 255)"],
+            "colors": ["white", "rgb(0, 255, 0)", "rgb(255,0,255)", "rgb(0, 0, 255)"],
             "size": ["S", "M", "L"]
         },
         {
@@ -22,60 +22,252 @@
         },
         {
             "id": 3,
-            "name": "Panda",
+            "name": "Berry cute",
             "code": "PANDA",
-            "url": "panda_st-top150.jpg",
+            "url": "berry.png",
             "price": [11, 12312, 113124],
-            "colors": ["#ffcc00", "#3399FF"],
-            "size": ["S", "M", "L", "XL"]
+            "colors": ["red", "HotPink", "white", "LimeGreen", "#ffcc00", "#3399FF"],
+            "size": ["S", "M", "L", "XL"] 
         },
         {
             "id": 4,
-            "name": "Elefant",
-            "url": "Elefant150.jpg",
+            "name": "Love my bike",
+            "url": "love_my_bike.png",
             "price": [11, 12312, 113124],
-            "colors": ["#ffcc00", "#3399FF"],
+            "colors": ["white"],
             "size": ["S", "M", "L"]
         },
         {
             "id": 5,
-            "name": "Angel panda",
-            "url": "Angelpanda150.jpg",
+            "name": "Bike to basics",
+            "url": "bike_to_basics.png",
             "price": [11, 12312, 113124],
-            "colors": ["#ffcc00", "#3399FF"],
+            "colors": ["black", "red", "LimeGreen", "#ffcc00", "#3399FF"],
             "size": ["S", "M", "L"]
         },
         {
             "id": 6,
-            "name": "Evil panda",
-            "url": "Evilpanda150.jpg",
+            "name": "Paraccro",
+            "url": "paraccro.png",
             "price": [11, 12312, 113124],
-            "colors": ["#ffcc00", "#3399FF"],
+            "colors": ["black", "red", "LimeGreen", "#ffcc00", "#3399FF"],
             "size": ["S", "M", "L"]
         },
         {
             "id": 7,
-            "name": "Girafa",
-            "url": "girafe_st-top150.jpg",
+            "name": "Love my bike",
+            "url": "love_my_bike.png",
             "price": [11, 12312, 113124],
-            "colors": ["#ffcc00", "#3399FF"],
+            "colors": ["white"],
             "size": ["S", "M", "L"]
         },
         {
             "id": 8,
-            "name": "Pescarus",
-            "url": "pescarus_dzf150.jpg",
+            "name": "What's up?",
+            "url": "whats_up.png",
             "price": [11, 12312, 113124],
-            "colors": ["#ffcc00", "#3399FF"],
+            "colors": ["black", "red", "HotPink", "LimeGreen", "#ffcc00", "#3399FF"],
             "size": ["S", "M", "L"]
         },
         {
             "id": 9,
-            "name": "Elefant",
-            "url": "elefant_2_150.jpg",
+            "name": "Elephantastique",
+            "url": "elephantastique.png",
             "price": [11, 12312, 113124],
-            "colors": ["#ffcc00", "#3399FF"],
+            "colors": ["HotPink","LimeGreen", "#ffcc00", "#3399FF"],
             "size": ["S", "M", "L"]
-        }
+        },
+		{
+			"id": 10,
+            "name": "Monkey business",
+            "url": "monkey_business.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "#ffcc00", "#3399FF"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 11,
+            "name": "Elephantastique?",
+            "url": "elephantastique.png",
+            "price": [11, 12312, 113124],
+            "colors": ["HotPink", "black", "LimeGreen", "#ffcc00", "#3399FF"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 12,
+            "name": "La vie en rose",
+            "url": "la_vie_en_rose.png",
+            "price": [11, 12312, 113124],
+            "colors": ["HotPink"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 13,
+            "name": "Chamonix",
+            "url": "chx.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 14,
+            "name": "Daily vitabeans",
+            "url": "daily_vitabeans.png",
+            "price": [11, 12312, 113124],
+            "colors": ["brown", "black", "red"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 15,
+            "name": "Burn my shadow",
+            "url": "burn_my_shadow.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 16,
+            "name": "Vertu",
+            "url": "vertu.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 17,
+            "name": "Chat",
+            "url": "chat.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 18,
+            "name": "Bufnita",
+            "url": "bufnita.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 19,
+            "name": "Tigru",
+            "url": "tigru.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 20,
+            "name": "Libelula",
+            "url": "libelula.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 21,
+            "name": "Girafa",
+            "url": "girafa.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 22,
+            "name": "La vie en vert",
+            "url": "la_vie_en_vert.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 23,
+            "name": "Moi je vois la vie en vert",
+            "url": "moi_je_vois.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 24,
+            "name": "Made in China",
+            "url": "made_in_china.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 25,
+            "name": "Prix cassés",
+            "url": "prix_casses.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 26,
+            "name": "Soldes",
+            "url": "soldes.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 27,
+            "name": "Skull candy",
+            "url": "skull_candy.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 28,
+            "name": "Tea amo",
+            "url": "tea_amo.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 29,
+            "name": "Chamonix-Mont-Blanc",
+            "url": "chamonix_mont_blanc.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 30,
+            "name": "Tea amo",
+            "url": "tea_amo_cana_mare.png",
+            "price": [11, 12312, 113124],
+            "colors": ["white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 31,
+            "name": "The irony of typography",
+            "url": "the_irony_of_typography.png",
+            "price": [11, 12312, 113124],
+            "colors": ["white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 32,
+            "name": "Paradiccted",
+            "url": "maci_canapea.png",
+            "price": [11, 12312, 113124],
+            "colors": ["white"],
+            "size": ["S", "M", "L"]
+		},
+		{
+			"id": 33,
+            "name": "Freebee",
+            "url": "freebee.png",
+            "price": [11, 12312, 113124],
+            "colors": ["white"],
+            "size": ["S", "M", "L"]
+		}
     ]
 }
