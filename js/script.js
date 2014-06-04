@@ -41,198 +41,27 @@ $(document).ready(function () {
             var selectedMenuPosition = withUntilNow + outerWidth / 2 - 23;
             ul.css({'backgroundPosition': selectedMenuPosition + 'px 15px'});
 
-            // gallery
             if (index == ul.children('li').length - 1) {
+                // gallery
                 $('#gallery').show('blind', {direction: 'vertical'}, 550);
-                $('#xxx').empty();
+                $('#banner').hide();
+                $('#content').empty();
                 $('footer').animate({'top': $('#gallery').height() + 115 + 'px'}, 550);
-                // everything else
             } else {
-                $('#gallery').hide('blind', {direction: 'vertical'}, 500);
+                $('#gallery').hide('blind', {direction: 'vertical'}, 300);
+                // everything else
+                $('#banner').show();
+                loadDecals($(this).children('a').text());
                 changeBanner(index);
             }
         }
     );
 
-    //add pattern
-    $.getJSON('data/patternData.json', {format: "json"}, function (data) {
-        var ptn = [];
-        var text = [];
-        var topLeft = '';
-        var pos = [];
-        var posx = 0;
-        var posy = 0;
-        $.each(data.patterns, function (i, item) {
-            ptn = [];
-            $.each(item.stickers, function (i, sticker) {
-                topLeft = sticker.topLeft;
-                pos = topLeft.split(', ');
-                posx = Number(pos[0]);
-                posy = Number(pos[1]);
-                ptn.push('<div class="ptn" style="position: absolute; top:' + posy + 'px; left:' + posx + 'px;">' +
-                '<img src="img/ptns/' + sticker.url + '" />' +
-                '</div>');
-            });
-            $.each(item.texts, function (i, text) {
-//                alert(text);
-            });
-            ptns.push(ptn);
-        });
-        //add pattern to DOM
-        $('<div/>', {
-            class: 'pattern',
-            html: ptns[0].join('')
-        }).appendTo('#banner');
-        patternCount = ptns[0].length;
-    }).success(function () {
-            updateBannerSize();
-            updateBannerHighlights();
-        }
-    );
+    //add banner
+    loadBanner(page);
 
-    //add images
-    $.getJSON('data/decalsData.json', {format: "json"}, function (data) {
-        var items = [];
-        $.each(data.decals, function (i, item) {
-            stickerDB[item.code] = item;
-
-            var colors = [];
-            $.each(item.colors, function (i, color) {
-                colors.push('<div class="color"><div class="color-mini" style="background-color:' + color + ';"></div></div>');
-            });
-
-            var sizez = [];
-            $.each(item.size, function (i, size) {
-                sizez.push('<div class="size" price="' + item.price[i] + '"><div class="size-text">' + size + '</div></div>');
-            });
-            items.push(
-                '<div class="thumb-wrap' + ( (i + 1) % 4 == 0 ? '-odd' : '') + '">' +
-                '<div class="thumb">' +
-                '<div class="thumb-zoom">' +
-                '<div class="infos-off">' +
-                '<div class="title">' + item.name + '</div>' +
-                '<div class="zoom">+</div>' +
-                '<div class="picker">' +
-                colors.reverse().join('') +
-                '</div>' +
-                '<div class="price-container"><div id="' + item.code + '" class="price">' + item.price[0] + ' ' + currency + '</div></div>' +
-                '<div class="sizez">' +
-                sizez.join('') +
-                '</div>' +
-                '</div>' +
-                '<img color="' + item.colors[0] + '" src="img/decals/' + item.url + '"/>' +
-                '</div>' +
-                '</div>' +
-                '</div>');
-        });
-        $('<div/>', {
-            id: 'decals',
-            html: items.join('')
-        }).appendTo('#content');
-
-        var totalHeight = Math.ceil(items.length / 4) * 250 + 430;
-        $('footer').css({top: totalHeight + 'px'});
-        //$('#content').css({height: totalHeight+'px'});
-    }).success(function () {
-        // adding hover
-        $('.thumb-zoom').hover(function () {
-            $(this).addClass('thumb-over');
-
-            // show title
-            var infos = $(this).children(':first-child');
-            infos.show(200);
-
-            // show picker
-            infos.children('.picker').children('.color:last-child').css({opacity: 1, display: 'block'});
-
-        }, function () {
-            $(this).children(':first-child').hide(200);
-            $(this).removeClass('thumb-over');
-        }).dblclick(function () {
-            var asd = $(this);
-            zoom(asd.children().children('.zoom'));
-        });
-
-        // zoom
-        $('.zoom').click(function () {
-            zoom(this);
-        });
-
-        // miniPanZoom
-        setTimeout(function () {
-//            if ($.browser.mozilla) {
-//                $(".thumb-zoom").miniZoomPan({sW: 230, sH: 230, lW: 330, lH: 330 });
-//            } else {
-            $(".thumb-zoom").miniZoomPan({sW: 230, sH: 230, lW: 500, lH: 500});
-//            }
-        }, 13);
-
-        // colors
-        var picker = $('.picker');
-        picker.children(':last-child').mouseenter(function () {
-            $(this).parent().children('.color').slice(0, $(this).children('.color').length - 1).css({
-                opacity: 1,
-                display: 'block'
-            });
-        });
-
-        picker.mouseleave(function () {
-            var picker = $(this);
-            // fuck off
-            picker.children('.color').slice(0, $(this).children('.color').length - 1).css({
-                opacity: 0,
-                display: 'none'
-            });
-
-            // switch colors
-            // color "0"
-            var colorZero = picker.children('.color:last-child').children(':only-child');
-            var oldColor = colorZero.css('backgroundColor');
-            var newColor = picker.parent().next().css('backgroundColor');
-            colorZero.css({'backgroundColor': newColor});
-            // replacing
-            picker.children().slice(0, $(this).children('.color').length - 1).children('.color-mini').filter(function () {
-                if ($(this).css('backgroundColor') == newColor) {
-                    $(this).css('backgroundColor', oldColor);
-                }
-            });
-        });
-
-        // select color
-        $('.color').click(function () {
-            var color = $(this);
-            // image backgroundColor
-            color.parent().parent().next().css({'backgroundColor': color.children().css('backgroundColor')});
-        });
-
-        // select size
-        addSizer('.sizez', '.size', {}, {}, '.price-container');
-
-        var priceContainer = $('.price-container');
-        priceContainer.click(function () {
-            var price = $(this).children('.price');
-            // code
-            var stickerCode = price.attr('id');
-            // color
-            var stickerColor = $(this).parent().next().css('backgroundColor');
-            // size
-            var stickerSize = $(this).next().children('[selected="selected"]').text();
-            // price
-            var text = price.text().toString();
-            var stickerPrice = text.substring(0, text.indexOf(' '));
-
-            addStickerToCaddy({
-                code: stickerCode, color: stickerColor, size: stickerSize, q: 1, price: stickerPrice
-            });
-        });
-        priceContainer.hover(function () {
-            $(this).children('.price').css({display: 'none'});
-            $(this).append('<div class="caddy-over"></div>');
-        }, function () {
-            $(this).children('.price').css({display: 'block'});
-            $(this).children('.caddy-over').remove();
-        });
-    }); // end load decals
+    //add decals
+    loadDecals('adrenaline');
 
     var jssor_slider1 = new $JssorSlider$("gallery", {
         $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
@@ -657,4 +486,187 @@ function zoom(obj) {
     detail.click(function () {
         overOut();
     });
+}
+
+function loadDecals(category) {
+    $('#content').empty();
+    $.getJSON('data/' + category.toLowerCase() + '.json', {format: "json"}, function (data) {
+        var items = [];
+        $.each(data.decals, function (i, item) {
+            stickerDB[item.code] = item;
+
+            var colors = [];
+            $.each(item.colors, function (i, color) {
+                colors.push('<div class="color"><div class="color-mini" style="background-color:' + color + ';"></div></div>');
+            });
+
+            var sizez = [];
+            $.each(item.size, function (i, size) {
+                sizez.push('<div class="size" price="' + item.price[i] + '"><div class="size-text">' + size + '</div></div>');
+            });
+            items.push(
+                '<div class="thumb-wrap' + ( (i + 1) % 4 == 0 ? '-odd' : '') + '">' +
+                '<div class="thumb">' +
+                '<div class="thumb-zoom">' +
+                '<div class="infos-off">' +
+                '<div class="title">' + item.name + '</div>' +
+                '<div class="zoom">+</div>' +
+                '<div class="picker">' +
+                colors.reverse().join('') +
+                '</div>' +
+                '<div class="price-container"><div id="' + item.code + '" class="price">' + item.price[0] + ' ' + currency + '</div></div>' +
+                '<div class="sizez">' +
+                sizez.join('') +
+                '</div>' +
+                '</div>' +
+                '<img color="' + item.colors[0] + '" src="img/decals/' + item.url + '"/>' +
+                '</div>' +
+                '</div>' +
+                '</div>');
+        });
+        $('<div/>', {
+            id: 'decals',
+            html: items.join('')
+        }).appendTo('#content');
+
+        var totalHeight = Math.ceil(items.length / 4) * 250 + 430;
+        $('footer').css({top: totalHeight + 'px'});
+        //$('#content').css({height: totalHeight+'px'});
+    }).success(function () {
+        // adding hover
+        $('.thumb-zoom').hover(function () {
+            $(this).addClass('thumb-over');
+
+            // show title
+            var infos = $(this).children(':first-child');
+            infos.show(200);
+
+            // show picker
+            infos.children('.picker').children('.color:last-child').css({opacity: 1, display: 'block'});
+
+        }, function () {
+            $(this).children(':first-child').hide(200);
+            $(this).removeClass('thumb-over');
+        }).dblclick(function () {
+            var asd = $(this);
+            zoom(asd.children().children('.zoom'));
+        });
+
+        // zoom
+        $('.zoom').click(function () {
+            zoom(this);
+        });
+
+        // miniPanZoom
+        setTimeout(function () {
+//            if ($.browser.mozilla) {
+//                $(".thumb-zoom").miniZoomPan({sW: 230, sH: 230, lW: 330, lH: 330 });
+//            } else {
+            $(".thumb-zoom").miniZoomPan({sW: 230, sH: 230, lW: 500, lH: 500});
+//            }
+        }, 13);
+
+        // colors
+        var picker = $('.picker');
+        picker.children(':last-child').mouseenter(function () {
+            $(this).parent().children('.color').slice(0, $(this).children('.color').length - 1).css({
+                opacity: 1,
+                display: 'block'
+            });
+        });
+
+        picker.mouseleave(function () {
+            var picker = $(this);
+            // fuck off
+            picker.children('.color').slice(0, $(this).children('.color').length - 1).css({
+                opacity: 0,
+                display: 'none'
+            });
+
+            // switch colors
+            // color "0"
+            var colorZero = picker.children('.color:last-child').children(':only-child');
+            var oldColor = colorZero.css('backgroundColor');
+            var newColor = picker.parent().next().css('backgroundColor');
+            colorZero.css({'backgroundColor': newColor});
+            // replacing
+            picker.children().slice(0, $(this).children('.color').length - 1).children('.color-mini').filter(function () {
+                if ($(this).css('backgroundColor') == newColor) {
+                    $(this).css('backgroundColor', oldColor);
+                }
+            });
+        });
+
+        // select color
+        $('.color').click(function () {
+            var color = $(this);
+            // image backgroundColor
+            color.parent().parent().next().css({'backgroundColor': color.children().css('backgroundColor')});
+        });
+
+        // select size
+        addSizer('.sizez', '.size', {}, {}, '.price-container');
+
+        var priceContainer = $('.price-container');
+        priceContainer.click(function () {
+            var price = $(this).children('.price');
+            // code
+            var stickerCode = price.attr('id');
+            // color
+            var stickerColor = $(this).parent().next().css('backgroundColor');
+            // size
+            var stickerSize = $(this).next().children('[selected="selected"]').text();
+            // price
+            var text = price.text().toString();
+            var stickerPrice = text.substring(0, text.indexOf(' '));
+
+            addStickerToCaddy({
+                code: stickerCode, color: stickerColor, size: stickerSize, q: 1, price: stickerPrice
+            });
+        });
+        priceContainer.hover(function () {
+            $(this).children('.price').css({display: 'none'});
+            $(this).append('<div class="caddy-over"></div>');
+        }, function () {
+            $(this).children('.price').css({display: 'block'});
+            $(this).children('.caddy-over').remove();
+        });
+    }); // end load decals
+}
+
+function loadBanner(page) {
+    $.getJSON('data/patternData.json', {format: "json"}, function (data) {
+        var ptn = [];
+        var text = [];
+        var topLeft = '';
+        var pos = [];
+        var posx = 0;
+        var posy = 0;
+        $.each(data.patterns, function (i, item) {
+            ptn = [];
+            $.each(item.stickers, function (i, sticker) {
+                topLeft = sticker.topLeft;
+                pos = topLeft.split(', ');
+                posx = Number(pos[0]);
+                posy = Number(pos[1]);
+                ptn.push('<div class="ptn" style="position: absolute; top:' + posy + 'px; left:' + posx + 'px;">' +
+                '<img src="img/ptns/' + sticker.url + '" />' +
+                '</div>');
+            });
+            $.each(item.texts, function (i, text) {
+//                alert(text);
+            });
+            ptns.push(ptn);
+        });
+        //add pattern to DOM
+        $('<div/>', {
+            class: 'pattern',
+            html: ptns[0].join('')
+        }).appendTo('#banner');
+        patternCount = ptns[0].length;
+    }).success(function () {
+            updateBannerSize();
+            updateBannerHighlights();
+        }
+    );
 }
