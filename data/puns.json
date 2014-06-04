@@ -1,0 +1,61 @@
+{
+    "decals": [
+        {
+            "id": 3,
+            "name": "Berry cute",
+            "code": "PANDA",
+            "url": "berry.png",
+            "price": [11, 12312, 113124],
+            "colors": ["red", "HotPink", "white", "LimeGreen", "#ffcc00", "#3399FF"],
+            "size": ["S", "M", "L", "XL"]
+        },
+        {
+            "id": 9,
+            "name": "Elephantastique",
+            "url": "elephantastique.png",
+            "price": [11, 12312, 113124],
+            "colors": ["HotPink", "LimeGreen", "#ffcc00", "#3399FF"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 10,
+            "name": "Monkey business",
+            "url": "monkey_business.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "#ffcc00", "#3399FF"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 12,
+            "name": "La vie en rose",
+            "url": "la_vie_en_rose.png",
+            "price": [11, 12312, 113124],
+            "colors": ["HotPink"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 14,
+            "name": "Daily vitabeans",
+            "url": "daily_vitabeans.png",
+            "price": [11, 12312, 113124],
+            "colors": ["brown", "black", "red"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 24,
+            "name": "Made in China",
+            "url": "made_in_china.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 28,
+            "name": "Tea amo",
+            "url": "tea_amo.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        }
+    ]
+}

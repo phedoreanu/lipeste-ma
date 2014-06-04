@@ -1,0 +1,36 @@
+{
+    "decals": [
+        {
+            "id": 5,
+            "name": "Bike to basics",
+            "url": "bike_to_basics.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "red", "LimeGreen", "#ffcc00", "#3399FF"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 16,
+            "name": "Vertu",
+            "url": "vertu.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 22,
+            "name": "La vie en vert",
+            "url": "la_vie_en_vert.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 23,
+            "name": "Moi je vois la vie en vert",
+            "url": "moi_je_vois.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        }
+    ]
+}

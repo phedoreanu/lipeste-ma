@@ -1,0 +1,20 @@
+{
+    "decals": [
+        {
+            "id": 15,
+            "name": "Burn my shadow",
+            "url": "burn_my_shadow.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "white"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 27,
+            "name": "Skull candy",
+            "url": "skull_candy.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        }
+    ]
+}

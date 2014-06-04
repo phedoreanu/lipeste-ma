@@ -1,0 +1,20 @@
+{
+    "decals": [
+        {
+            "id": 25,
+            "name": "Prix cassés",
+            "url": "prix_casses.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 26,
+            "name": "Soldes",
+            "url": "soldes.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        }
+    ]
+}

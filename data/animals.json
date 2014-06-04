@@ -1,0 +1,47 @@
+{
+    "decals": [
+        {
+            "id": 2,
+            "name": "Tigru",
+            "code": "TIGER",
+            "url": "tigru.png",
+            "price": [1, 2, 3],
+            "colors": ["rgb(255, 255,0)", "rgb(0, 255, 0)", "rgb(0, 0, 255)", "rgb(255,0,255)",
+                "rgb(255, 255, 255)", "rgb(255, 0, 0)", "rgb(0, 255, 255)", "rgb(255,0,255)",
+                "rgb(123, 12, 255)", "rgb(255,111,255)"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 17,
+            "name": "Chat",
+            "url": "chat.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 18,
+            "name": "Bufnita",
+            "url": "bufnita.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 20,
+            "name": "Libelula",
+            "url": "libelula.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 21,
+            "name": "Girafa",
+            "url": "girafa.png",
+            "price": [11, 12312, 113124],
+            "colors": ["LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        }
+    ]
+}

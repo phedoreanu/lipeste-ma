@@ -1,0 +1,44 @@
+{
+    "decals": [
+        {
+            "id": 4,
+            "name": "Love my bike",
+            "url": "love_my_bike.png",
+            "price": [11, 12312, 113124],
+            "colors": ["white"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 6,
+            "name": "Paraccro",
+            "url": "paraccro.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "red", "LimeGreen", "#ffcc00", "#3399FF"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 8,
+            "name": "What's up?",
+            "url": "whats_up.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "red", "HotPink", "LimeGreen", "#ffcc00", "#3399FF"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 13,
+            "name": "Chamonix",
+            "url": "chx.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black"],
+            "size": ["S", "M", "L"]
+        },
+        {
+            "id": 29,
+            "name": "Chamonix-Mont-Blanc",
+            "url": "chamonix_mont_blanc.png",
+            "price": [11, 12312, 113124],
+            "colors": ["black", "LimeGreen", "black", "white"],
+            "size": ["S", "M", "L"]
+        }
+    ]
+}
