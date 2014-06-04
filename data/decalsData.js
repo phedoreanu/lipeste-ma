@@ -1,14 +1,4 @@
-﻿/*Ext.define('Decal', {
- extend:'Ext.data.Model',
- fields:[
- {name:'id', type:'int'},
- {name:'price', type:'int'},
- 'name', 'url', 'colors', 'dimensions'
- ,'desc'
- ]
- });*/
-
-var globalColors = [
+﻿var globalColors = [
     {name:'negru', hex:'000000'},
     {name:'alb', hex:'FFFFFF'},
     {name:'rosu', hex:'FF0000'},

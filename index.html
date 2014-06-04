@@ -1,49 +1,55 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Content-Language" content="fr"/>
-
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="pragma" content="no-cache">
+    <meta name="description" content="stickers"/>
 
     <link rel="shortcut icon" type="image/x-icon" href="img/Dinosaur.ico"/>
 
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
     <link rel="stylesheet" type="text/css" href="./css/decals.css"/>
     <link rel="stylesheet" type="text/css" href="./css/infos.css"/>
 
-
     <title>Lipește-mă</title>
 
-    <meta name="description" content="stickers"/>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!--<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>-->
+    <!--<script src="./js/svg.js"></script>-->
+    <!--<script type="text/javascript" src="./js/raphael-min.js"></script>-->
+    <!--<script src="https://raw.githubusercontent.com/wout/svg.js/master/dist/svg.min.js"></script>-->
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <!--<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>-->
+    <!--<script type="text/javascript" src="./js/jquery.tools.min.js"></script>-->
+    <script type="text/javascript" src="./js/jquery-ui-1.10.4.custom.min.js"></script>
+    <!--<script type="text/javascript" src="./js/jquery.animate-enhanced.min.js"></script>-->
     <script type="text/javascript" src="./js/jquery.backgroundpos.min.js"></script>
     <script type="text/javascript" src="./js/jquery.color.js"></script>
     <script type="text/javascript" src="./js/miniZoomPan.js"></script>
     <script type="text/javascript" src="./js/resizeEnd.js"></script>
+    <script type="text/javascript" src="./js/jssor.core.js"></script>
+    <script type="text/javascript" src="./js/jssor.utils.js"></script>
+    <script type="text/javascript" src="./js/jssor.slider.js"></script>
+    <!--<script type="text/javascript" src="./js/scriptSVG.js"></script>-->
     <script type="text/javascript" src="./js/script.js"></script>
-
+    <!--<script type="text/javascript" src="http://closure-compiler.appspot.com/code/jsc444c151796123262509c47454b65509b/default.js"></script>-->
 </head>
 
 <body>
-
 <header>
-    <div class="wrapper" style="margin-top:30px">
-        <h1><a href="index.html"><img src="img/logo.jpg" width="222" height="46" alt="Lipește-mă"></a></h1>
+    <div class="wrapper" style="margin-top:30px;">
+        <h1><a href="index.html"><img src="img/logo_mic.png" width="284" height="46" alt="Lipește-mă"></a></h1>
 
         <div id="caddy">
-        	<div id="caddyCount">0</div>
+            <div id="caddyCount">0</div>
         </div>
         <form method="get" action="/search" id="search">
             <input name="search" type="text" size="40" placeholder="Caută"/>
         </form>
         <nav>
-            <ul>
+            <ul class="ul-ease">
                 <li><a href="#">Park Avenue</a></li>
                 <li><a href="#">Elefănței roz</a></li>
                 <li><a href="#">Marie Antoinette</a></li>
@@ -53,23 +59,44 @@
                 <li><a href="#">Cai putere</a></li>
                 <li><a href="#">Jungle</a></li>
                 <li><a href="#">Customized</a></li>
+                <li><a href="#">Gallery</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <div id="page">
-	<div id="banner"></div>
     <div class="wrapper">
-    	<div id="content"></div>
+        <div id="gallery" style="position: relative; top: 0px; left: 0px; width: 996px; height: 660px; display: none;">
+            <div u="slides"
+                 style="cursor: move; position: absolute; left: 0px; top: 0px; width: 996px; overflow: hidden; height: 660px;">
+                <div style="background-color: black;"><img u="image" src="img/gallery/casti.png"/></div>
+                <div style="background-color: blue;"><img u="image" src="img/gallery/libelula.png"/></div>
+                <div><img u="image" src="img/gallery/freebee.png"/></div>
+                <div><img u="image" src="img/gallery/maci.png"/></div>
+                <div><img u="image" src="img/gallery/the_irony_of_typography.png"/></div>
+                <div><img u="image" src="img/gallery/skull_candy.png"/></div>
+                <div><img u="image" src="img/gallery/daily_vitabeans.png"/></div>
+                <div><img u="image" src="img/gallery/tea_amo.png"/></div>
+            </div>
+            <span u="arrowleft" class="jssora15l" style="width: 55px; height: 55px; left: 8px;"></span>
+            <span u="arrowright" class="jssora15r" style="width: 55px; height: 55px; right: -26px;"></span>
+            <a style="display: none" href="http://www.jssor.com">jQuery</a>
+        </div>
+    </div>
+    <div id="xxx">
+        <div id="banner"></div>
+        <div class="wrapper">
+            <div id="content"></div>
+        </div>
     </div>
 </div>
 
 <footer>
-	<div class="wrapper" style="border-top: 1px solid #000">
-    	<div id="links">
-			<div id="contact"><a href="mailto:contact@lipeste-ma.ro">contact@lipeste-ma.ro</a></div>
-			<div id="copy">© Copyright Lipeste-ma.ro. All rights reserved.</div>
+    <div class="wrapper" style="border-top: 1px solid #000">
+        <div id="links">
+            <div id="contact"><a href="mailto:atelier@dadagraphix.fr">atelier@dadagraphix.fr</a></div>
+            <div id="copy">© Copyright Dadagraphix.fr. All rights reserved.</div>
         </div>
     </div>
 </footer>

@@ -1,9 +1,6 @@
-// JavaScript Document
-
 var stickers = [];
 var stickerDB = {};
 var currency = 'RON';
-
 var ptns = [];
 var currentX = 0;
 var patternCount = 0;
@@ -12,7 +9,6 @@ var patternSpacer = 10;
 var displacement = 15;
 
 $(document).ready(function () {
-
     //init menu
     var selectedMenuPosition = $('li:first-child').outerWidth(true) / 2 - 23;
     $('ul').css('background-position', selectedMenuPosition + 'px' + ' 15px');
@@ -30,15 +26,11 @@ $(document).ready(function () {
             $(this).css({opacity: 1});
         }
     );
-
     $('li').click(
         function () {
-
             //menu selected position
             var ul = $('ul');
-            ul.addClass('ul-ease');
             var index = $(this).index();
-
             var outerWidth = $(this).outerWidth(true);
             var withUntilNow = 0;
 
@@ -47,57 +39,51 @@ $(document).ready(function () {
                 withUntilNow += $(this).outerWidth(true);
             });
             var selectedMenuPosition = withUntilNow + outerWidth / 2 - 23;
-
             ul.css({'backgroundPosition': selectedMenuPosition + 'px 15px'});
 
-            //change banner
-            changeBanner(index);
-
+            // gallery
+            if (index == ul.children('li').length - 1) {
+                $('#gallery').show('blind', {direction: 'vertical'}, 550);
+                $('#xxx').empty();
+                $('footer').animate({'top': $('#gallery').height() + 115 + 'px'}, 550);
+                // everything else
+            } else {
+                $('#gallery').hide('blind', {direction: 'vertical'}, 500);
+                changeBanner(index);
+            }
         }
     );
 
     //add pattern
-    $.getJSON('data/patternData.json', {format: "json"},function (data) {
-
+    $.getJSON('data/patternData.json', {format: "json"}, function (data) {
         var ptn = [];
         var text = [];
         var topLeft = '';
         var pos = [];
         var posx = 0;
         var posy = 0;
-
         $.each(data.patterns, function (i, item) {
-
             ptn = [];
-
             $.each(item.stickers, function (i, sticker) {
-
                 topLeft = sticker.topLeft;
                 pos = topLeft.split(', ');
                 posx = Number(pos[0]);
                 posy = Number(pos[1]);
-
                 ptn.push('<div class="ptn" style="position: absolute; top:' + posy + 'px; left:' + posx + 'px;">' +
-                    '<img src="img/ptns/' + sticker.url + '" />' +
-                    '</div>');
-
+                '<img src="img/ptns/' + sticker.url + '" />' +
+                '</div>');
             });
-
             $.each(item.texts, function (i, text) {
 //                alert(text);
             });
-
             ptns.push(ptn);
         });
-
         //add pattern to DOM
         $('<div/>', {
             class: 'pattern',
             html: ptns[0].join('')
         }).appendTo('#banner');
-
         patternCount = ptns[0].length;
-
     }).success(function () {
             updateBannerSize();
             updateBannerHighlights();
@@ -105,11 +91,11 @@ $(document).ready(function () {
     );
 
     //add images
-    $.getJSON('data/decalsData.json', {format: "json"},function (data) {
+    $.getJSON('data/decalsData.json', {format: "json"}, function (data) {
         var items = [];
-
         $.each(data.decals, function (i, item) {
             stickerDB[item.code] = item;
+
             var colors = [];
             $.each(item.colors, function (i, color) {
                 colors.push('<div class="color"><div class="color-mini" style="background-color:' + color + ';"></div></div>');
@@ -119,28 +105,26 @@ $(document).ready(function () {
             $.each(item.size, function (i, size) {
                 sizez.push('<div class="size" price="' + item.price[i] + '"><div class="size-text">' + size + '</div></div>');
             });
-
             items.push(
                 '<div class="thumb-wrap' + ( (i + 1) % 4 == 0 ? '-odd' : '') + '">' +
-                    '<div class="thumb">' +
-                    '<div class="thumb-zoom">' +
-                    '<div class="infos-off">' +
-                    '<div class="title">' + item.name + '</div>' +
-                    '<div class="zoom">+</div>' +
-                    '<div class="picker">' +
-                    colors.reverse().join('') +
-                    '</div>' +
-                    '<div class="price-container"><div id="' + item.code + '" class="price">' + item.price[0] + ' ' + currency + '</div></div>' +
-                    '<div class="sizez">' +
-                    sizez.join('') +
-                    '</div>' +
-                    '</div>' +
-                    '<img color="' + item.colors[0] + '" src="img/decals/' + item.url + '"/>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>');
+                '<div class="thumb">' +
+                '<div class="thumb-zoom">' +
+                '<div class="infos-off">' +
+                '<div class="title">' + item.name + '</div>' +
+                '<div class="zoom">+</div>' +
+                '<div class="picker">' +
+                colors.reverse().join('') +
+                '</div>' +
+                '<div class="price-container"><div id="' + item.code + '" class="price">' + item.price[0] + ' ' + currency + '</div></div>' +
+                '<div class="sizez">' +
+                sizez.join('') +
+                '</div>' +
+                '</div>' +
+                '<img color="' + item.colors[0] + '" src="img/decals/' + item.url + '"/>' +
+                '</div>' +
+                '</div>' +
+                '</div>');
         });
-
         $('<div/>', {
             id: 'decals',
             html: items.join('')
@@ -149,132 +133,130 @@ $(document).ready(function () {
         var totalHeight = Math.ceil(items.length / 4) * 250 + 430;
         $('footer').css({top: totalHeight + 'px'});
         //$('#content').css({height: totalHeight+'px'});
-
     }).success(function () {
-            // adding hover
-            $('.thumb-zoom').hover(
-                function () {
-                    $(this).addClass('thumb-over');
+        // adding hover
+        $('.thumb-zoom').hover(function () {
+            $(this).addClass('thumb-over');
 
-                    // show title
-                    var infos = $(this).children(':first-child');
-                    infos.show(200);
+            // show title
+            var infos = $(this).children(':first-child');
+            infos.show(200);
 
-                    // show picker
-                    infos.children('.picker').children('.color:last-child').css({opacity: 1, display: 'block'});
+            // show picker
+            infos.children('.picker').children('.color:last-child').css({opacity: 1, display: 'block'});
 
-                }, function () {
-                    $(this).children(':first-child').hide(200);
-                    $(this).removeClass('thumb-over');
-                });
+        }, function () {
+            $(this).children(':first-child').hide(200);
+            $(this).removeClass('thumb-over');
+        }).dblclick(function () {
+            var asd = $(this);
+            zoom(asd.children().children('.zoom'));
+        });
 
-            // zoom
-            $('.zoom').click(function () {
-                var zoom = $(this);
+        // zoom
+        $('.zoom').click(function () {
+            zoom(this);
+        });
 
-                var src = zoom.parent().next().attr('src');
-                var backgroundColor = zoom.parent().next().css('backgroundColor');
-                var name = src.substring(0, src.lastIndexOf('.')) + '_mare.png';
+        // miniPanZoom
+        setTimeout(function () {
+//            if ($.browser.mozilla) {
+//                $(".thumb-zoom").miniZoomPan({sW: 230, sH: 230, lW: 330, lH: 330 });
+//            } else {
+            $(".thumb-zoom").miniZoomPan({sW: 230, sH: 230, lW: 500, lH: 500});
+//            }
+        }, 13);
 
+        // colors
+        var picker = $('.picker');
+        picker.children(':last-child').mouseenter(function () {
+            $(this).parent().children('.color').slice(0, $(this).children('.color').length - 1).css({
+                opacity: 1,
+                display: 'block'
+            });
+        });
 
-                var detail = $('#detail');
-                var zoomedImage = $('<div id="zoomedImage">').css({position: 'absolute'});
-                var fullImage = $('<img>');
-                fullImage.attr('src', name);
-                fullImage.css('backgroundColor', backgroundColor);
-                detail.append(zoomedImage.append(fullImage));
-
-                overOn();
-                detail.click(function () {
-                    overOut();
-                });
-                $(window).resize();
+        picker.mouseleave(function () {
+            var picker = $(this);
+            // fuck off
+            picker.children('.color').slice(0, $(this).children('.color').length - 1).css({
+                opacity: 0,
+                display: 'none'
             });
 
-            // miniPanZoom
-            setTimeout(function () {
-                if ($.browser.mozilla) {
-                    $(".thumb-zoom").miniZoomPan({sW: 230, sH: 230, lW: 330, lH: 330 });
-                } else {
-                    $(".thumb-zoom").miniZoomPan({sW: 230, sH: 230, lW: 500, lH: 500 });
+            // switch colors
+            // color "0"
+            var colorZero = picker.children('.color:last-child').children(':only-child');
+            var oldColor = colorZero.css('backgroundColor');
+            var newColor = picker.parent().next().css('backgroundColor');
+            colorZero.css({'backgroundColor': newColor});
+            // replacing
+            picker.children().slice(0, $(this).children('.color').length - 1).children('.color-mini').filter(function () {
+                if ($(this).css('backgroundColor') == newColor) {
+                    $(this).css('backgroundColor', oldColor);
                 }
-            }, 13);
-
-            // colors
-            var picker = $('.picker');
-            picker.children(':last-child').mouseenter(function () {
-                $(this).parent().children('.color').slice(0, $(this).children('.color').length - 1).css({opacity: 1, display: 'block'});
             });
+        });
 
-            picker.mouseleave(function () {
-                var picker = $(this);
-                // fuck off
-                picker.children('.color').slice(0, $(this).children('.color').length - 1).css({opacity: 0, display: 'none'});
+        // select color
+        $('.color').click(function () {
+            var color = $(this);
+            // image backgroundColor
+            color.parent().parent().next().css({'backgroundColor': color.children().css('backgroundColor')});
+        });
 
-                // switch colors
-                // color "0"
-                var colorZero = picker.children('.color:last-child').children(':only-child');
-                var oldColor = colorZero.css('backgroundColor');
-                var newColor = picker.parent().next().css('backgroundColor');
-                colorZero.css({'backgroundColor': newColor});
-                // replacing
-                picker.children().slice(0, $(this).children('.color').length - 1).children('.color-mini').filter(function () {
-                    if ($(this).css('backgroundColor') == newColor) {
-                        $(this).css('backgroundColor', oldColor);
-                    }
-                });
+        // select size
+        addSizer('.sizez', '.size', {}, {}, '.price-container');
+
+        var priceContainer = $('.price-container');
+        priceContainer.click(function () {
+            var price = $(this).children('.price');
+            // code
+            var stickerCode = price.attr('id');
+            // color
+            var stickerColor = $(this).parent().next().css('backgroundColor');
+            // size
+            var stickerSize = $(this).next().children('[selected="selected"]').text();
+            // price
+            var text = price.text().toString();
+            var stickerPrice = text.substring(0, text.indexOf(' '));
+
+            addStickerToCaddy({
+                code: stickerCode, color: stickerColor, size: stickerSize, q: 1, price: stickerPrice
             });
+        });
+        priceContainer.hover(function () {
+            $(this).children('.price').css({display: 'none'});
+            $(this).append('<div class="caddy-over"></div>');
+        }, function () {
+            $(this).children('.price').css({display: 'block'});
+            $(this).children('.caddy-over').remove();
+        });
+    }); // end load decals
 
-            // select color
-            $('.color').click(function () {
-                var color = $(this);
-                // image backgroundColor
-                color.parent().parent().next().css({'backgroundColor': color.children().css('backgroundColor')});
-            });
-
-            // select size
-            addSizer('.sizez', '.size', {}, {}, '.price-container');
-
-            var priceContainer = $('.price-container');
-            priceContainer.click(function () {
-                var price = $(this).children('.price');
-                // code
-                var stickerCode = price.attr('id');
-                // color
-                var stickerColor = $(this).parent().next().css('backgroundColor');
-                // size
-                var stickerSize = $(this).next().children('[selected="selected"]').text();
-                // price
-                var text = price.text().toString();
-                var stickerPrice = text.substring(0, text.indexOf(' '));
-
-                addStickerToCaddy({
-                    code: stickerCode, color: stickerColor, size: stickerSize, q: 1, price: stickerPrice
-                });
-            });
-            priceContainer.hover(function () {
-                $(this).children('.price').css({display: 'none'});
-                $(this).append('<div class="caddy-over"></div>');
-            }, function () {
-                $(this).children('.price').css({display: 'block'});
-                $(this).children('.caddy-over').remove();
-            });
-
-
-        }); //end succes function
+    var jssor_slider1 = new $JssorSlider$("gallery", {
+        $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+        $FillMode: 2,                           //[Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide),
+        // 2 cover (keep aspect ratio and cover whole slide), 4 actuall size, default value is 0
+        $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+        $SlideEasing: $JssorEasing$.$EaseOutQuint,          //[Optional] Specifies easing for right to left animation, default value is $JssorEasing$.$EaseOutQuad
+        $SlideDuration: 1000,                               //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+        $MinDragOffsetToSlide: 100,
+        $ArrowNavigatorOptions: {                       //[Optional] Options to specify and enable arrow navigator or not
+            $Class: $JssorArrowNavigator$,              //[Requried] Class to create arrow navigator instance
+            $ChanceToShow: 1,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+            $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+            $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+        }
+    });
 
     //onResize
     $(window).resize(function () {
-
-        $('#shoppingCart').css({'top': $(window).height() / 2 - 200,'left': $(window).width() / 2 - 300});
-
-        $('#orderForm').css({'top': $(window).height() / 2 - 200,'left': $(window).width() / 2 - 300,opacity:1});//.animate({opacity:1},500);
-
-        $('#zoomedImage').css({top: $(window).height() / 2 - 327, left: $(window).width() / 2 - 500});
-
+        $('#shoppingCart').css({'top': $(window).height() / 2 - 200, 'left': $(window).width() / 2 - 300});
+        $('#orderForm').css({'top': $(window).height() / 2 - 200, 'left': $(window).width() / 2 - 300, opacity: 1});//.animate({opacity:1},500);
+        $('#zoomedImage').css({top: $(window).height() / 2 - 371, left: $(window).width() / 2 - 500});
         var startPosition = ($(window).width() - 996) / 2 + 30;
         var endPosition = ($(window).width() - 996) / 2 + $('li:eq(4)').position().left;
-
     });
 
     //onResizeEnd
@@ -288,20 +270,16 @@ $(document).ready(function () {
     );
 });
 
-//functions
 function overOn() {
-
     var cover = $('#cover');
     cover.show();
     cover.fadeTo(300, 0.95);
     var detail = $('#detail');
     detail.show();
     detail.fadeTo(300, 1);
-
-} //end function
+}
 
 function overOut() {
-
     var detail = $('#detail');
     detail.unbind('click');
     detail.empty();
@@ -312,11 +290,9 @@ function overOut() {
     detail.fadeTo(300, 0, function () {
         $('#detail').hide();
     });
-
-} //end function
+}
 
 function addStickerToCaddy(sticker) {
-
     var code = sticker.code;
     var color = sticker.color;
     var size = sticker.size;
@@ -334,11 +310,11 @@ function addStickerToCaddy(sticker) {
         else stickers[index].q++;
     }
     updateCaddyCount();
-
-} //end function
+}
 
 function showCaddy() {
     if ($('#caddyCount').css('display') == 'block') {
+        overOn();
         $.get('caddy.html', function (data) {
             $('#detail').html(data);
             var stickerCartItems = [];
@@ -355,9 +331,9 @@ function showCaddy() {
                 var colors = [];
                 $.each(sticker.colors, function (i, color) {
                     // max 9 colors - for design purposes
-                    if(i == 9) return false;
+                    if (i == 9) return false;
                     var colorItem = '<div class="item-color"><div class="color-mini" style="background-color:' + color + ';"></div></div>';
-                    if ($.Color(color).toRgbaString()  == $.Color(item.color).toRgbaString()) {
+                    if ($.Color(color).toRgbaString() == $.Color(item.color).toRgbaString()) {
                         // add to the begining - color "0"
                         colors.unshift(colorItem);
                     } else {
@@ -369,52 +345,58 @@ function showCaddy() {
                 $.each(sticker.size, function (i, size) {
                     sizez.push(
                         '<div class="item-size" price="' + sticker.price[i] + '"' + (size == item.size ? ' selected="selected" ' : '') + '>' +
-                            '<div class="size-text">' + size + '</div>' +
-                            '</div>');
+                        '<div class="size-text">' + size + '</div>' +
+                        '</div>');
                 });
 
                 var qs = [];
                 for (var k = 1; k < 6; k++) {
                     qs.push(
                         '<div class="item-q" ' + (q == k ? ' selected="selected" ' : '') + '>' +
-                            '<div class="size-text">' + k + '</div>' +
-                            '</div>');
+                        '<div class="size-text">' + k + '</div>' +
+                        '</div>');
                 }
 
                 stickerCartItems.push(
                     '<div class="cart-item">' +
-                        '<div class="item-title">' + sticker.name + '</div>' +
-                        '<div class="points">...................................................</div>' +
-                        '<div class="item-picker">' +
-                        colors.reverse().join('') +
-                        '</div>' +
-                        '<div class="points" style="margin-left:20px;">...</div>' +
-                        '<div class="item-sizez">' +
-                        sizez.join('') +
-                        '</div>' +
-                        '<div class="points">.............</div>' +
-                        '<div class="item-q-container">' +
-                        qs.join('') +
-                        '</div>' +
-                        '<div class="points">.............</div>' +
-                        '<div class="item-price"><div>' + price + '</div></div>' +
-                        '<div class="item-delete"></div>' +
-                        '</div>');
+                    '<div class="item-title">' + sticker.name + '</div>' +
+                    '<div class="points">...................................................</div>' +
+                    '<div class="item-picker">' +
+                    colors.reverse().join('') +
+                    '</div>' +
+                    '<div class="points" style="margin-left:20px;">...</div>' +
+                    '<div class="item-sizez">' +
+                    sizez.join('') +
+                    '</div>' +
+                    '<div class="points">.............</div>' +
+                    '<div class="item-q-container">' +
+                    qs.join('') +
+                    '</div>' +
+                    '<div class="points">.............</div>' +
+                    '<div class="item-price"><div>' + price + '</div></div>' +
+                    '<div class="item-delete"></div>' +
+                    '</div>');
             });
             $('#shoppingCart').children('#cartItems').html(stickerCartItems.join(''));
 
             // show picker -- TODO:can be extracted
             var itemPicker = $('.item-picker');
             itemPicker.children(':last-child').mouseenter(function () {
-                $(this).parent().prev().css({opacity:0});
+                $(this).parent().prev().css({opacity: 0});
 
-                $(this).parent().children('.item-color').slice(0, $(this).children('.item-color').length - 1).css({opacity: 1, display: 'block'});
+                $(this).parent().children('.item-color').slice(0, $(this).children('.item-color').length - 1).css({
+                    opacity: 1,
+                    display: 'block'
+                });
             }).css({opacity: 1, display: 'block'});
 
             itemPicker.mouseleave(function () {
                 var picker = $(this);
                 // fuck off
-                picker.children('.item-color').slice(0, $(this).children('.item-color').length - 1).css({opacity: 0, display: 'none'});
+                picker.children('.item-color').slice(0, $(this).children('.item-color').length - 1).css({
+                    opacity: 0,
+                    display: 'none'
+                });
 
                 // switch colors
                 // color "0"
@@ -430,7 +412,7 @@ function showCaddy() {
                 });
 
                 // showing the points
-                picker.prev().css({opacity:1});
+                picker.prev().css({opacity: 1});
             });
 
             // select color
@@ -476,18 +458,17 @@ function showCaddy() {
             });
             next.hover(function () {
                 if (stickers.length > 0) {
-                    $(this).css({opacity:1});
+                    $(this).css({opacity: 1});
                 }
-            }, function() {
+            }, function () {
                 if (stickers.length > 0) {
-                    $(this).css({opacity:0.6});
+                    $(this).css({opacity: 0.6});
                 }
             });
             $('.close').click(function () {
                 overOut();
             });
             updateCaddyCount();
-            overOn();
 
             $(window).resize();
 
@@ -495,8 +476,7 @@ function showCaddy() {
             addSizer('.item-q-container', '.item-q', {top: -10, zIndex: 4}, {top: 0, zIndex: 3});
         });
     }
-
-} //end function
+}
 
 function showOrderForm() {
     $('#shoppingCart').empty();
@@ -539,10 +519,9 @@ function updateCaddyCount() {
         $('#cartTotal').text('Total : 0 ' + currency);
     }
 
-} //end function
+}
 
 function updateBannerHighlights() {
-
     var startPosition = ($(window).width() - 996) / 2 + 30;
     var endPosition = ($(window).width() - 996) / 2 + $('li:eq(4)').position().left;
 
@@ -551,17 +530,18 @@ function updateBannerHighlights() {
         if (p.left > startPosition && p.left < endPosition) $(this).delay(Math.random() * 500).fadeTo(Math.random() * 200 + 300, .4);
         else $(this).delay(Math.random() * 500).fadeTo(Math.random() * 200 + 300, .1);
     });
-
-} //end function
+}
 
 function updateBannerSize() {
-
     var maxX = $(window).width() + displacement;
 
     if (currentX < maxX) {
         while (currentX < maxX) {
             currentX = $('.ptn').filter(':eq(' + ($('.ptn').length - patternCount) + ')').position().left + patternWidth + patternSpacer;
-            if (currentX < maxX) $('.ptn').filter(':eq(' + ($('.ptn').length - patternCount) + ')').clone().css({left: currentX, opacity: 0}).appendTo('.pattern');
+            if (currentX < maxX) $('.ptn').filter(':eq(' + ($('.ptn').length - patternCount) + ')').clone().css({
+                left: currentX,
+                opacity: 0
+            }).appendTo('.pattern');
         }
     }
     else {
@@ -570,11 +550,9 @@ function updateBannerSize() {
             if (currentX > maxX) $('.ptn').filter(':eq(' + ($('.ptn').length - 1) + ')').remove();
         }
     }
-
-} //end function
+}
 
 function changeBanner(index) {
-
     var bannerCount = $('.ptn').length;
     $(ptns[index].join('')).appendTo('.pattern');
     currentX = 0;
@@ -585,8 +563,7 @@ function changeBanner(index) {
             $(this).delay(index * 30 + Math.random() * 10).animate({left: newX + 'px'}, 1470 + Math.random() * 30, 'swing', function () {
                 $(this).remove()
             });
-        }
-        else {
+        } else {
             var newX = $(this).position().left + $(window).width() + patternSpacer + displacement;
             $(this).css({left: newX, opacity: .1});
             var newX = $(this).position().left - $(window).width() - patternSpacer - displacement;
@@ -597,12 +574,12 @@ function changeBanner(index) {
             });
         }
     });
-
-} //end function
+}
 
 function addSizer(containerClass, itemClass, customCssOn, customCssOff, priceClass, hideCurrency) {
     $(containerClass).hover(function () {
-        var defaultCss = {backgroundImage: 'url(img/arrow90.png)', backgroundPosition: '18px 3px',
+        var defaultCss = {
+            backgroundImage: 'url(img/arrow90.png)', backgroundPosition: '18px 3px',
             height: $(this).children(itemClass).length * 10.4, borderRadius: 6
         };
         // merging the two objects customCssOn in defaultCss
@@ -612,7 +589,8 @@ function addSizer(containerClass, itemClass, customCssOn, customCssOff, priceCla
         $(this).children(itemClass).show(200);
     }, function () {
         var sizez = $(this);
-        var defaultCss = {height: 13, backgroundImage: 'url(img/arrow.png)', backgroundPosition: '15px 4px', borderRadius: 13
+        var defaultCss = {
+            height: 13, backgroundImage: 'url(img/arrow.png)', backgroundPosition: '15px 4px', borderRadius: 13
         };
         // merging the two objects customCssOn in defaultCss
         $.extend(defaultCss, customCssOff);
@@ -661,5 +639,22 @@ function addSizer(containerClass, itemClass, customCssOn, customCssOff, priceCla
     } else {
         size.siblings('[selected="selected"]').show();
     }
-} // end function
-// eof
+}
+
+function zoom(obj) {
+    overOn();
+    var zoom = $(obj);
+    var src = zoom.parent().next().attr('src');
+    var backgroundColor = zoom.parent().next().css('backgroundColor');
+    var name = src.substring(0, src.lastIndexOf('.')) + '_mare.png';
+    var detail = $('#detail');
+    var zoomedImage = $('<div id="zoomedImage">').css({position: 'absolute'});
+    var fullImage = $('<img>');
+    fullImage.attr('src', name);
+    fullImage.css('backgroundColor', backgroundColor);
+    detail.append(zoomedImage.append(fullImage));
+    $(window).resize();
+    detail.click(function () {
+        overOut();
+    });
+}

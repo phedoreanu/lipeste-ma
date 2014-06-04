@@ -1,15 +1,6 @@
 {
     "decals": [
         {
-            "id": 1,
-            "name": "Castel",
-            "code": "CASTLE",
-            "url": "castel.png",
-            "price": [10, 20, 30],
-            "colors": ["white", "rgb(0, 255, 0)", "rgb(255,0,255)", "rgb(0, 0, 255)"],
-            "size": ["S", "M", "L"]
-        },
-        {
             "id": 2,
             "name": "Tigru",
             "code": "TIGER",
@@ -85,15 +76,7 @@
             "colors": ["black", "LimeGreen", "#ffcc00", "#3399FF"],
             "size": ["S", "M", "L"]
 		},
-		{
-			"id": 11,
-            "name": "Elephantastique?",
-            "url": "elephantastique.png",
-            "price": [11, 12312, 113124],
-            "colors": ["HotPink", "black", "LimeGreen", "#ffcc00", "#3399FF"],
-            "size": ["S", "M", "L"]
-		},
-		{
+        {
 			"id": 12,
             "name": "La vie en rose",
             "url": "la_vie_en_rose.png",
@@ -235,38 +218,6 @@
             "url": "chamonix_mont_blanc.png",
             "price": [11, 12312, 113124],
             "colors": ["black", "LimeGreen", "black", "white"],
-            "size": ["S", "M", "L"]
-		},
-		{
-			"id": 30,
-            "name": "Tea amo",
-            "url": "tea_amo_cana_mare.png",
-            "price": [11, 12312, 113124],
-            "colors": ["white"],
-            "size": ["S", "M", "L"]
-		},
-		{
-			"id": 31,
-            "name": "The irony of typography",
-            "url": "the_irony_of_typography.png",
-            "price": [11, 12312, 113124],
-            "colors": ["white"],
-            "size": ["S", "M", "L"]
-		},
-		{
-			"id": 32,
-            "name": "Paradiccted",
-            "url": "maci_canapea.png",
-            "price": [11, 12312, 113124],
-            "colors": ["white"],
-            "size": ["S", "M", "L"]
-		},
-		{
-			"id": 33,
-            "name": "Freebee",
-            "url": "freebee.png",
-            "price": [11, 12312, 113124],
-            "colors": ["white"],
             "size": ["S", "M", "L"]
 		}
     ]

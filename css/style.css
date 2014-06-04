@@ -6,7 +6,19 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
+
+body {
+    /*overflow-x: hidden;*/
+    /*overflow-y: visible;*/
+}
+
+/*pointer-events: none;*/
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;
@@ -130,7 +142,7 @@ h1 {
 
 #caddy:hover {
     opacity: .4;
-    filter: alpha(opacity = 40); /* For IE8 and earlier */
+    filter: alpha(opacity=40); /* For IE8 and earlier */
     cursor: pointer;
 }
 
@@ -215,20 +227,22 @@ nav li a:hover {
 #banner {
     height: 280px;
 }
+
 .pattern {
-	position:relative;
-	top:3px;
-	left:-15px;
-	width:100%;
-	height:276px;
+    position: relative;
+    top: 3px;
+    left: -15px;
+    width: 100%;
+    height: 276px;
 }
+
 .ptn {
-	filter: alpha(opacity = 0);
+    filter: alpha(opacity=0);
     opacity: 0;
 }
 
 #content {
-    border-top: 1px solid #000;
+    /*border-top: 1px solid #000;*/
 }
 
 #shoppingCart {
@@ -264,7 +278,7 @@ nav li a:hover {
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 3px solid #000;
-	color:#000;
+    color: #000;
 }
 
 .close {
@@ -275,7 +289,7 @@ nav li a:hover {
     width: 11px;
     background: url(../img/close.png) no-repeat;
 
-    filter: alpha(opacity = 60);
+    filter: alpha(opacity=60);
     opacity: 0.6;
 
     -webkit-transition: all 0.7s ease 0s;
@@ -285,7 +299,7 @@ nav li a:hover {
 }
 
 .close:hover {
-    filter: alpha(opacity = 100);
+    filter: alpha(opacity=100);
     opacity: 1;
     cursor: pointer;
 }
@@ -322,7 +336,7 @@ nav li a:hover {
     padding-top: 1px;
 
     background-color: #000;
-    filter: alpha(opacity = 60);
+    filter: alpha(opacity=60);
     opacity: 0.6;
 
     -moz-border-radius: 13px;
@@ -401,7 +415,7 @@ nav li a:hover {
     color: #fff;
     padding-left: 5px;
     background: #000 url(../img/arrow.png) no-repeat 15px 4px;
-    filter: alpha(opacity = 60);
+    filter: alpha(opacity=60);
     opacity: 0.6;
     padding-top: 1px;
 
@@ -418,7 +432,7 @@ nav li a:hover {
 }
 
 .item-sizez:hover {
-    filter: alpha(opacity = 100);
+    filter: alpha(opacity=100);
     opacity: 1;
     cursor: pointer;
 }
@@ -441,7 +455,7 @@ nav li a:hover {
     color: #fff;
     padding-left: 5px;
     background: #000 url(../img/arrow.png) no-repeat 15px 4px;
-    filter: alpha(opacity = 60);
+    filter: alpha(opacity=60);
     opacity: 0.6;
     padding-top: 1px;
 
@@ -458,7 +472,7 @@ nav li a:hover {
 }
 
 .item-q-container:hover {
-    filter: alpha(opacity = 100);
+    filter: alpha(opacity=100);
     opacity: 1;
     cursor: pointer;
 }
@@ -484,7 +498,7 @@ nav li a:hover {
     cursor: default;
 
     background-color: #000;
-    filter: alpha(opacity = 60);
+    filter: alpha(opacity=60);
     opacity: 0.6;
 
     -moz-border-radius: 13px;
@@ -502,7 +516,7 @@ nav li a:hover {
     width: 11px;
     background: url(../img/close.png) no-repeat;
 
-    filter: alpha(opacity = 60);
+    filter: alpha(opacity=60);
     opacity: 0.6;
 
     -webkit-transition: all 0.7s ease 0s;
@@ -512,7 +526,7 @@ nav li a:hover {
 }
 
 .item-delete:hover {
-    filter: alpha(opacity = 100);
+    filter: alpha(opacity=100);
     opacity: 1;
     cursor: pointer;
 }
@@ -534,12 +548,12 @@ nav li a:hover {
 }
 
 .cart-bottom-border {
-	border-top: 3px solid #000;
+    border-top: 3px solid #000;
 }
 
 #cartTotal {
-	position:relative;
-	float:left;
+    position: relative;
+    float: left;
     /*border-top: 3px solid #000;*/
     padding-top: 5px;
     padding-right: 5px;
@@ -556,13 +570,13 @@ nav li a:hover {
     border-top: 1px solid #000;
     margin: 0 auto;
     padding-top: 10px;
-	color:#000;
+    color: #000;
 }
 
 .next {
     position: relative;
     float: right;
-    margin-top:5px;
+    margin-top: 5px;
     width: 60px;
     height: 13px;
     font-size: 11px;
@@ -571,7 +585,7 @@ nav li a:hover {
     padding-top: 1px;
 
     background-color: #000;
-    filter: alpha(opacity = 60);
+    filter: alpha(opacity=60);
     opacity: 0.6;
 
     -moz-border-radius: 13px;
@@ -592,7 +606,7 @@ nav li a:hover {
 .prev {
     position: relative;
     float: left;
-	margin-top:5px;
+    margin-top: 5px;
     width: 60px;
     height: 13px;
     font-size: 11px;
@@ -601,7 +615,7 @@ nav li a:hover {
     padding-top: 2px;
 
     background-color: #000;
-    filter: alpha(opacity = 60);
+    filter: alpha(opacity=60);
     opacity: 0.6;
 
     -moz-border-radius: 13px;
@@ -616,7 +630,7 @@ nav li a:hover {
 }
 
 .prev:hover {
-    filter: alpha(opacity = 100);
+    filter: alpha(opacity=100);
     opacity: 1;
     cursor: pointer;
 }
@@ -628,7 +642,7 @@ nav li a:hover {
     border-top: 1px solid #000;
     margin: 0 auto;
     padding-top: 10px;
-	color:#000;
+    color: #000;
 }
 
 #field input[type="text"] {
@@ -636,7 +650,7 @@ nav li a:hover {
     border: 0 none;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-size: 11px;
-	height:13px;
+    height: 13px;
     font-style: italic;
     color: #fff;
     width: 250px;
@@ -645,9 +659,9 @@ nav li a:hover {
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-	
-	opacity: .6;
-	filter: alpha(opacity = 60);
+
+    opacity: .6;
+    filter: alpha(opacity=60);
 
     -webkit-transition: all 0.7s ease 0s;
     -moz-transition: all 0.7s ease 0s;
@@ -656,56 +670,60 @@ nav li a:hover {
 }
 
 #field input[type="text"]:focus {
-	opacity: 1;
-	filter: alpha(opacity = 100);
+    opacity: 1;
+    filter: alpha(opacity=100);
 }
 
 .input_field {
-	position:relative;
-	width:100%;
-	margin-top:5px;
-	margin-left:100px;
+    position: relative;
+    width: 100%;
+    margin-top: 5px;
+    margin-left: 100px;
 }
 
 footer {
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-	position:absolute;
-	width:100%;
-	height:40px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    position: absolute;
+    width: 100%;
+    height: 40px;
 }
+
 #links {
-	border-top: 3px solid #000;
-	padding-top:3px;
-	margin-top:1px;
+    border-top: 3px solid #000;
+    padding-top: 3px;
+    margin-top: 1px;
 }
+
 #contact {
-	position:relative;
-	float:left;
+    position: relative;
+    float: left;
 }
+
 #contact a {
-	font-size:11px;
-	color:#696969;
-	font-weight:bold;
-	text-decoration:none;
-	
-	-webkit-transition: all 0.2s ease 0s;
+    font-size: 11px;
+    color: #696969;
+    font-weight: bold;
+    text-decoration: none;
+
+    -webkit-transition: all 0.2s ease 0s;
     -moz-transition: all 0.2s ease 0s;
     -o-transition: all 0.2s ease 0s;
     transition: all 0.2s ease 0s;
-	
+
 }
+
 #contact a:hover {
-	color:#000;
+    color: #000;
 }
+
 #copy {
-	position:relative;
-	float:right;
-	font-size:11px;
-	color:#696969;
-	font-weight:bold;
-	cursor:default;
+    position: relative;
+    float: right;
+    font-size: 11px;
+    color: #696969;
+    font-weight: bold;
+    cursor: default;
 }
-	
 
 /* over pages */
 #cover {
@@ -717,7 +735,7 @@ footer {
     width: 100%;
     background-color: #fff;
     opacity: 0;
-    filter: alpha(opacity = 0); /* For IE8 and earlier */
+    filter: alpha(opacity=0); /* For IE8 and earlier */
     display: none;
     overflow: hidden;
     -ms-overflow: hidden; /*IE8*/
@@ -733,9 +751,50 @@ footer {
     height: 100%;
     width: 100%;
     opacity: 0;
-    filter: alpha(opacity = 0); /* For IE8 and earlier */
+    filter: alpha(opacity=0); /* For IE8 and earlier */
     display: none;
     overflow: hidden;
     -ms-overflow: hidden; /*IE8*/
     color: #000;
+}
+
+/* jssor slider arrow navigator skin 15 css */
+/*
+.jssora15l              (normal)
+.jssora15r              (normal)
+.jssora15l:hover        (normal mouseover)
+.jssora15r:hover        (normal mouseover)
+.jssora15ldn            (mousedown)
+.jssora15rdn            (mousedown)
+*/
+.jssora15l, .jssora15r, .jssora15ldn, .jssora15rdn {
+    position: absolute;
+    cursor: pointer;
+    display: block;
+    background: url(../img/a15.png) no-repeat;
+    overflow: hidden;
+}
+
+.jssora15l {
+    background-position: -20px -41px;
+}
+
+.jssora15r {
+    background-position: -80px -41px;
+}
+
+.jssora15l:hover {
+    background-position: -140px -41px;
+}
+
+.jssora15r:hover {
+    background-position: -200px -41px;
+}
+
+.jssora15ldn {
+    background-position: -260px -41px;
+}
+
+.jssora15rdn {
+    background-position: -320px -41px;
 }
