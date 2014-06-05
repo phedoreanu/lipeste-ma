@@ -70,7 +70,7 @@ $(document).ready(function () {
                 $('#gallery').show('blind', {direction: 'vertical'}, 550);
                 $('#banner').hide();
                 $('#content').empty();
-                $('footer').animate({'top': $('#gallery').height() + 115 + 'px'}, 550);
+                $('footer').animate({'top': $('#gallery').height() + 109 + 'px'}, 550); // + #page margin-top -1px
             } else {
                 $('#gallery').hide('blind', {direction: 'vertical'}, 300);
                 // everything else
