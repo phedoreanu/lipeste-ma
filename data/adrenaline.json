@@ -1,7 +1,7 @@
 {
     "decals": [
         {
-            "id": 4,
+            "code": "LOVE_MY_BIKE",
             "name": "Love my bike",
             "url": "love_my_bike.png",
             "price": [11, 12312, 113124],
@@ -10,7 +10,7 @@
             "keywords": "caca, maca"
         },
         {
-            "id": 6,
+            "code": "PARACCRO",
             "name": "Paraccro",
             "url": "paraccro.png",
             "price": [11, 12312, 113124],
@@ -19,7 +19,7 @@
             "keywords": "caca, coco"
         },
         {
-            "id": 8,
+            "code": "WHATS_UP",
             "name": "What's up?",
             "url": "whats_up.png",
             "price": [11, 12312, 113124],
@@ -28,7 +28,7 @@
             "keywords": "climbing"
         },
         {
-            "id": 13,
+            "code": "CHAMONIX",
             "name": "Chamonix",
             "url": "chx.png",
             "price": [11, 12312, 113124],
@@ -37,7 +37,7 @@
             "keywords": "climbing"
         },
         {
-            "id": 29,
+            "code": "CHAMONIX_M",
             "name": "Chamonix Mont Blanc",
             "url": "chamonix_mont_blanc.png",
             "price": [11, 12312, 113124],
@@ -46,7 +46,7 @@
             "keywords": "climbing"
         },
         {
-            "id": 15,
+            "code": "BURN_MY_SHADOW",
             "name": "Burn my shadow",
             "url": "burn_my_shadow.png",
             "price": [11, 12312, 113124],
@@ -55,7 +55,7 @@
             "keywords": "climbing"
         },
         {
-            "id": 27,
+            "code": "SKULL_CANDY",
             "name": "Skull candy",
             "url": "skull_candy.png",
             "price": [11, 12312, 113124],
