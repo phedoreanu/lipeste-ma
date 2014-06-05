@@ -153,7 +153,7 @@ function addStickerToCaddy(sticker) {
     else {
         var add = true;
         var index = -1;
-        $.each(stickers, function (i, item) {
+        stickers.forEach(function (item, i) {
             if (code == item.code && $.Color(color).toRgbaString() == $.Color(item.color).toRgbaString() && size == item.size) {
                 add = false;
                 index = i;
@@ -172,7 +172,7 @@ function showCaddy() {
             $('#detail').html(data);
             var stickerCartItems = [];
 
-            $.each(stickers, function (i, item) {
+            stickers.forEach(function (item, i) {
                 var code = item.code;
                 var color = item.color;
                 var size = item.size;
@@ -182,7 +182,7 @@ function showCaddy() {
                 var sticker = stickerDB[code];
 
                 var colors = [];
-                $.each(sticker.colors, function (i, color) {
+                sticker.colors.forEach(function (color, i) {
                     // max 9 colors - for design purposes
                     if (i == 9) return false;
                     var colorItem = '<div class="item-color"><div class="color-mini" style="background-color:' + color + ';"></div></div>';
@@ -195,7 +195,7 @@ function showCaddy() {
                 });
 
                 var sizez = [];
-                $.each(sticker.size, function (i, size) {
+                sticker.size.forEach(function (size, i) {
                     sizez.push(
                         '<div class="item-size" price="' + sticker.price[i] + '"' + (size == item.size ? ' selected="selected" ' : '') + '>' +
                         '<div class="size-text">' + size + '</div>' +
@@ -360,7 +360,7 @@ function updateCaddyCount() {
 
         var q = 0;
         var total = 0;
-        $.each(stickers, function (i, item) {
+        stickers.forEach(function (item, i) {
             q += item.q;
             total += item.price * item.q;
         });
@@ -516,44 +516,38 @@ function loadDecals(category, keyword) {
     $('#content').empty();
     $.getJSON('data/' + category.toLowerCase() + '.json', {format: "json"}, function (data) {
         var items = [];
-        var decals = filterDecals(data.decals, keyword);
-//        console.log("decals.size()=" + decals.length);
-
-        for (var i = 0; i < decals.length; i++) {
-            var item = decals[i];
-
-            stickerDB[item.code] = item;
+        filterDecals(data.decals, keyword).forEach(function (decal, index, array) {
+            stickerDB[decal.code] = decal;
 
             var colors = [];
-            $.each(item.colors, function (i, color) {
+            decal.colors.forEach(function (color, i) {
                 colors.push('<div class="color"><div class="color-mini" style="background-color:' + color + ';"></div></div>');
             });
-
             var sizez = [];
-            $.each(item.size, function (i, size) {
-                sizez.push('<div class="size" price="' + item.price[i] + '"><div class="size-text">' + size + '</div></div>');
+            decal.size.forEach(function (size, i) {
+                sizez.push('<div class="size" price="' + decal.price[i] + '"><div class="size-text">' + size + '</div></div>');
             });
             items.push(
                 '<div class="thumb-wrap' + ( (items.length + 1) % 4 == 0 ? '-odd' : '') + '">' +
                 '<div class="thumb">' +
                 '<div class="thumb-zoom">' +
                 '<div class="infos-off">' +
-//                '<div>'+ item.keywords.join(',') +'</div>' +
-                '<div class="title">' + item.name + '</div>' +
+//                '<div>'+ decal.keywords.join(',') +'</div>' +
+                '<div class="title">' + decal.name + '</div>' +
                 '<div class="zoom">+</div>' +
                 '<div class="picker">' +
                 colors.reverse().join('') +
                 '</div>' +
-                '<div class="price-container"><div id="' + item.code + '" class="price">' + item.price[0] + ' ' + currency + '</div></div>' +
+                '<div class="price-container"><div id="' + decal.code + '" class="price">' + decal.price[0] + ' ' + currency + '</div></div>' +
                 '<div class="sizez">' +
                 sizez.join('') +
                 '</div>' +
                 '</div>' +
-                '<img color="' + item.colors[0] + '" src="img/decals/' + item.url + '"/>' +
+                '<img color="' + decal.colors[0] + '" src="img/decals/' + decal.url + '"/>' +
                 '</div>' +
                 '</div>' +
                 '</div>');
-        }
+        });
         $('<div/>', {
             id: 'decals',
             html: items.join('')
@@ -672,9 +666,9 @@ function loadBanner(page) {
         var pos = [];
         var posx = 0;
         var posy = 0;
-        $.each(data.patterns, function (i, item) {
+        data.patterns.forEach(function (pattern, i) {
             ptn = [];
-            $.each(item.stickers, function (i, sticker) {
+            pattern.stickers.forEach(function (sticker, i) {
                 topLeft = sticker.topLeft;
                 pos = topLeft.split(', ');
                 posx = Number(pos[0]);
@@ -683,9 +677,9 @@ function loadBanner(page) {
                 '<img src="img/ptns/' + sticker.url + '" />' +
                 '</div>');
             });
-            $.each(item.texts, function (i, text) {
+//            $.each(item.texts, function (i, text) {
 //                alert(text);
-            });
+//            });
             ptns.push(ptn);
         });
         //add pattern to DOM
