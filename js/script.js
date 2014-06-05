@@ -1,17 +1,40 @@
 var stickers = [];
 var stickerDB = {};
-var currency = 'RON';
+var currency = '€';
 var ptns = [];
 var currentX = 0;
 var patternCount = 0;
 var patternWidth = 210;
 var patternSpacer = 10;
 var displacement = 15;
+var lastQuery = 'a';
+var currentMenuText = 'Adrenaline';
+
+Array.prototype.find = function (match) {
+    return this.filter(function (item) {
+        return typeof item == 'string' && item.indexOf(match) > -1;
+    });
+}
 
 $(document).ready(function () {
     //init menu
     var selectedMenuPosition = $('li:first-child').outerWidth(true) / 2 - 23;
-    $('ul').css('background-position', selectedMenuPosition + 'px' + ' 15px');
+    $('ul').css('background-position', selectedMenuPosition + 'px' + ' 17px');
+
+    $('#search').submit(function (event) {
+        event.preventDefault();
+        doSearch($('#query').val());
+    });
+
+    $('#query').keyup(function (event) {
+        if (event.which == 27) {
+            event.preventDefault();
+            $(this).val('');
+        }
+        if (event.which != 13) {
+            doSearch($(this).val());
+        }
+    });
 
     //assign actions to buttons
     var caddy = $('#caddy');
@@ -33,13 +56,14 @@ $(document).ready(function () {
             var index = $(this).index();
             var outerWidth = $(this).outerWidth(true);
             var withUntilNow = 0;
+            currentMenuText = $(this).children('a').text();
 
             $('li').each(function (i, item) {
                 if (i == index) return false;
                 withUntilNow += $(this).outerWidth(true);
             });
             var selectedMenuPosition = withUntilNow + outerWidth / 2 - 23;
-            ul.css({'backgroundPosition': selectedMenuPosition + 'px 15px'});
+            ul.css({'backgroundPosition': selectedMenuPosition + 'px 17px'});
 
             if (index == ul.children('li').length - 1) {
                 // gallery
@@ -51,7 +75,7 @@ $(document).ready(function () {
                 $('#gallery').hide('blind', {direction: 'vertical'}, 300);
                 // everything else
                 $('#banner').show();
-                loadDecals($(this).children('a').text());
+                loadDecals(currentMenuText);
                 changeBanner(index);
             }
         }
@@ -61,7 +85,7 @@ $(document).ready(function () {
     loadBanner(page);
 
     //add decals
-    loadDecals('adrenaline');
+    loadDecals(currentMenuText);
 
     var jssor_slider1 = new $JssorSlider$("gallery", {
         $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
@@ -488,11 +512,16 @@ function zoom(obj) {
     });
 }
 
-function loadDecals(category) {
+function loadDecals(category, keyword) {
     $('#content').empty();
     $.getJSON('data/' + category.toLowerCase() + '.json', {format: "json"}, function (data) {
         var items = [];
-        $.each(data.decals, function (i, item) {
+        var decals = filterDecals(data.decals, keyword);
+//        console.log("decals.size()=" + decals.length);
+
+        for (var i = 0; i < decals.length; i++) {
+            var item = decals[i];
+
             stickerDB[item.code] = item;
 
             var colors = [];
@@ -505,10 +534,11 @@ function loadDecals(category) {
                 sizez.push('<div class="size" price="' + item.price[i] + '"><div class="size-text">' + size + '</div></div>');
             });
             items.push(
-                '<div class="thumb-wrap' + ( (i + 1) % 4 == 0 ? '-odd' : '') + '">' +
+                '<div class="thumb-wrap' + ( (items.length + 1) % 4 == 0 ? '-odd' : '') + '">' +
                 '<div class="thumb">' +
                 '<div class="thumb-zoom">' +
                 '<div class="infos-off">' +
+//                '<div>'+ item.keywords.join(',') +'</div>' +
                 '<div class="title">' + item.name + '</div>' +
                 '<div class="zoom">+</div>' +
                 '<div class="picker">' +
@@ -523,7 +553,7 @@ function loadDecals(category) {
                 '</div>' +
                 '</div>' +
                 '</div>');
-        });
+        }
         $('<div/>', {
             id: 'decals',
             html: items.join('')
@@ -669,4 +699,26 @@ function loadBanner(page) {
             updateBannerHighlights();
         }
     );
+}
+
+function doSearch(keyword) {
+    // seach
+    if (keyword.length >= 3 && keyword !== lastQuery) {
+//        console.log("doSearch=" + keyword);
+        loadDecals(currentMenuText, keyword);
+    }
+    // show all results
+    else if (keyword.length < 3 && lastQuery.length > 2) {
+        loadDecals(currentMenuText);
+    }
+    lastQuery = keyword;
+}
+
+function filterDecals(originalDecals, keyword) {
+    if (keyword) {
+        originalDecals = $.grep(originalDecals, function (elem) {
+            return elem.keywords.indexOf(keyword) > -1;
+        });
+    }
+    return originalDecals;
 }
