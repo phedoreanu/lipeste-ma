@@ -19,17 +19,30 @@ $(document).ready(function () {
     var selectedMenuPosition = $('li:first-child').outerWidth(true) / 2 - 23;
     $('ul').css('background-position', selectedMenuPosition + 'px' + ' 17px');
 
-    //init flags hover
-    $('#flags').children('a').click(function () {
-        var language = $(this).children(':first-child').attr('alt');
+    //init flags
+    restoreCurrentFlag();
+
+    $('#flags').mouseleave(function () {
+        restoreCurrentFlag();
+    }).find('img').click(function () {
+        var language = $(this).attr('alt');
         $.cookie('lang', language, {expires: 7, path: '/'});
         reloadLocale();
     }).hover(function () {
-        var img = $(this).children(':first-child');
+        var img = $(this);
+        $.each(img.siblings('img'), function (i, item) {
+            var imgxx = $(this);
+            var src = imgxx.attr('src');
+            if (src.indexOf('_') > -1) {
+                imgxx.attr('src', src.substr(0, src.indexOf('_')));
+            }
+        });
         var src = img.attr('src');
-        img.attr('src', src + '_c');
+        if (src.indexOf('_') == -1) {
+            img.attr('src', src + '_c');
+        }
     }, function () {
-        var img = $(this).children(':first-child');
+        var img = $(this);
         var src = img.attr('src');
         img.attr('src', src.substr(0, src.indexOf('_')));
     });
@@ -756,4 +769,9 @@ function reloadLocale() {
         var selectedMenuPosition = withUntilNow + outerWidth / 2 - 23;
         $('ul').css('background-position', selectedMenuPosition + 'px' + ' 17px');
     });
+}
+
+function restoreCurrentFlag() {
+    var currentFlag = $('img[alt=' + $.cookie('lang') + ']');
+    currentFlag.attr('src', currentFlag.attr('src') + "_c");
 }
