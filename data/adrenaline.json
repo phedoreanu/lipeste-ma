@@ -7,7 +7,7 @@
             "price": [11, 12312, 113124],
             "colors": ["white"],
             "size": ["S", "M", "L"],
-            "keywords": "caca, maca"
+            "keywords": "caca, maca, bike, velo, love, bicycle, bicyclette, amour, bicicleta, bita"
         },
         {
             "code": "PARACCRO",
@@ -16,7 +16,7 @@
             "price": [11, 12312, 113124],
             "colors": ["black", "red", "LimeGreen", "#ffcc00", "#3399FF"],
             "size": ["S", "M", "L"],
-            "keywords": "caca, coco"
+            "keywords": "caca, coco, accro, parapente, parapentiste, passion, parapanta, parapantist, pasiune, hobby"
         },
         {
             "code": "WHATS_UP",
@@ -25,7 +25,7 @@
             "price": [11, 12312, 113124],
             "colors": ["black", "red", "HotPink", "LimeGreen", "#ffcc00", "#3399FF"],
             "size": ["S", "M", "L"],
-            "keywords": "climbing"
+            "keywords": "climbing, climber, escalade, rock, roche, montagne, mountain, catarat, escalada, munte, stanca, cocot"
         },
         {
             "code": "CHAMONIX",
@@ -34,7 +34,7 @@
             "price": [11, 12312, 113124],
             "colors": ["black"],
             "size": ["S", "M", "L"],
-            "keywords": "climbing"
+            "keywords": "climbing, mountain, montagne, mont blanc, peak, sommet, munte, varf, statiune, resort, station"
         },
         {
             "code": "CHAMONIX_M",
@@ -43,7 +43,7 @@
             "price": [11, 12312, 113124],
             "colors": ["black", "LimeGreen", "black", "white"],
             "size": ["S", "M", "L"],
-            "keywords": "climbing"
+            "keywords": "climbing, mountain, montagne, mont blanc, peak, sommet, munte, varf, statiune, resort, station"
         },
         {
             "code": "BURN_MY_SHADOW",
@@ -52,7 +52,7 @@
             "price": [11, 12312, 113124],
             "colors": ["black", "LimeGreen", "white"],
             "size": ["S", "M", "L"],
-            "keywords": "climbing"
+            "keywords": "phantom, phantome, shadow, ombre, haloween, halloween, umbra, fantoma"
         },
         {
             "code": "SKULL_CANDY",
@@ -61,7 +61,7 @@
             "price": [11, 12312, 113124],
             "colors": ["black", "LimeGreen", "black", "white"],
             "size": ["S", "M", "L"],
-            "keywords": "climbing"
+            "keywords": "skull, bones, os, crane, tete de mort, mort, candy, craniu, cap"
         }
     ]
 }

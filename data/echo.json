@@ -7,6 +7,7 @@
             "price": [11, 12312, 113124],
             "colors": ["black", "red", "LimeGreen", "#ffcc00", "#3399FF"],
             "size": ["S", "M", "L"]
+			"keywords": "eco, nature, environment, environnement, bike, velo, transport, propre, natura, mediu, bicicleta, bita"
         },
         {
             "id": 16,
@@ -15,6 +16,7 @@
             "price": [11, 12312, 113124],
             "colors": ["LimeGreen", "black", "white"],
             "size": ["S", "M", "L"]
+			"keywords": "nature, bio, ecology, ecologie, recycle, recycler, recyclage, planet, planete, green, vert, natura, verde, mediu, organic"
         },
         {
             "id": 22,
@@ -23,6 +25,7 @@
             "price": [11, 12312, 113124],
             "colors": ["LimeGreen", "black", "white"],
             "size": ["S", "M", "L"]
+			"keywords": "nature, bio, ecology, ecologie, recycle, recycler, recyclage, planet, planete, green, vert, planeta, verde, mediu, organic"
         },
         {
             "id": 23,
@@ -31,6 +34,7 @@
             "price": [11, 12312, 113124],
             "colors": ["LimeGreen", "black", "white"],
             "size": ["S", "M", "L"]
+			"keywords": "nature, bio, ecology, ecologie, recycle, recycler, recyclage, planet, planete, green, vert, verde, planeta, mediu, organic"
         }
     ]
 }

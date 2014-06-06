@@ -50,33 +50,39 @@
             "stickers": [
                 {
                     "id": 1,
-                    "url": "ptn00.png",
-                    "topLeft": "0, 1"
+                    "url": "bufnita.png",
+                    "x":"0",
+					"y":"-233",
                 },
                 {
                     "id": 2,
-                    "url": "ptn01.png",
-                    "topLeft": "0, 127"
+                    "url": "girafa.png",
+                    "x":"161",
+					"y":"244",
                 },
                 {
                     "id": 3,
-                    "url": "ptn02.png",
-                    "topLeft": "56, 1"
+                    "url": "libelula_mare.png",
+                    "x":"168",
+					"y":"185",
                 },
                 {
                     "id": 4,
-                    "url": "ptn03.png",
-                    "topLeft": "56, 188"
+                    "url": "libelula_medie.png",
+                    "x":"110",
+					"y":"117",
                 },
                 {
                     "id": 5,
-                    "url": "ptn04.png",
-                    "topLeft": "95, 182"
+                    "url": "libelula_mica.png",
+                    "x":"11",
+					"y":"2",
                 },
                 {
                     "id": 6,
-                    "url": "ptn05.png",
-                    "topLeft": "116, 0"
+                    "url": "pisica.png",
+					"x":"11",
+					"y":"2",
                 },
                 {
                     "id": 7,

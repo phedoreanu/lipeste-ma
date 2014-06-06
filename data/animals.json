@@ -10,6 +10,7 @@
                 "rgb(255, 255, 255)", "rgb(255, 0, 0)", "rgb(0, 255, 255)", "rgb(255,0,255)",
                 "rgb(123, 12, 255)", "rgb(255,111,255)"],
             "size": ["S", "M", "L"]
+			"keywords": "tiger, jungle, tigre, animal, animaux, tigru, jungla"
         },
         {
             "id": 17,
@@ -18,6 +19,7 @@
             "price": [11, 12312, 113124],
             "colors": ["LimeGreen", "black", "white"],
             "size": ["S", "M", "L"]
+			"keywords": "chat, cat, kitty, animal, animaux, pisica, motan"
         },
         {
             "id": 18,
@@ -26,6 +28,7 @@
             "price": [11, 12312, 113124],
             "colors": ["LimeGreen", "black", "white"],
             "size": ["S", "M", "L"]
+			"keywords": "owl, hibou, chouette, bufnita, oiseau, bird, night, pasare, noapte, nocturne"
         },
         {
             "id": 20,
@@ -34,6 +37,7 @@
             "price": [11, 12312, 113124],
             "colors": ["LimeGreen", "black", "white"],
             "size": ["S", "M", "L"]
+			"keywords": "libellule, libelula, dragonfly, insect"
         },
         {
             "id": 21,
@@ -42,6 +46,7 @@
             "price": [11, 12312, 113124],
             "colors": ["LimeGreen", "black", "white"],
             "size": ["S", "M", "L"]
+			"keywords": "giraffe, girafe, girafa, animal"
         }
     ]
 }
