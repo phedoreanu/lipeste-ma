@@ -708,9 +708,7 @@ function loadBanner(page) {
     );
 }
 
-functio1n
-doSearch(keyword)
-{
+function doSearch(keyword) {
     // seach
     if (keyword.length >= 3 && keyword !== lastQuery) {
 //        console.log("doSearch=" + keyword);
