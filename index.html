@@ -17,16 +17,10 @@
 
     <title>dadagraphix</title>
 
+    <script type="text/javascript" src="js/locale/en.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!--<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>-->
-    <!--<script src="./js/svg.js"></script>-->
-    <!--<script type="text/javascript" src="./js/raphael-min.js"></script>-->
-    <!--<script src="https://raw.githubusercontent.com/wout/svg.js/master/dist/svg.min.js"></script>-->
-
-    <!--<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>-->
-    <!--<script type="text/javascript" src="./js/jquery.tools.min.js"></script>-->
+    <script type="text/javascript" src="./js/jquery.cookie.js"></script>
     <script type="text/javascript" src="./js/jquery-ui-1.10.4.custom.min.js"></script>
-    <!--<script type="text/javascript" src="./js/jquery.animate-enhanced.min.js"></script>-->
     <script type="text/javascript" src="./js/jquery.backgroundpos.min.js"></script>
     <script type="text/javascript" src="./js/jquery.color.js"></script>
     <script type="text/javascript" src="./js/miniZoomPan.js"></script>
@@ -34,8 +28,7 @@
     <script type="text/javascript" src="./js/jssor.core.js"></script>
     <script type="text/javascript" src="./js/jssor.utils.js"></script>
     <script type="text/javascript" src="./js/jssor.slider.js"></script>
-    <!--<script type="text/javascript" src="./js/scriptSVG.js"></script>-->
-    <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
     <!--<script type="text/javascript" src="http://closure-compiler.appspot.com/code/jsc444c151796123262509c47454b65509b/default.js"></script>-->
 </head>
 
@@ -58,16 +51,15 @@
         </form>
         <nav>
             <ul class="ul-ease">
-                <li><a>Adrenaline</a></li>
-                <li><a>Echo</a></li>
-                <li><a>Animals</a></li>
-                <li><a>Puns</a></li>
-                <li><a>666</a></li>
-                <li><a>Spirit</a></li>
-                <li><a>Promo</a></li>
-                <li><a>Jungle</a></li>
-                <li><a>Customized</a></li>
-                <li><a>Gallery</a></li>
+                <li id="adrenaline"><a id="locale_adrenaline"></a></li>
+                <li id="echo"><a id="locale_echo"></a></li>
+                <li id="animals"><a id="locale_animals"></a></li>
+                <li id="puns"><a id="locale_puns"></a></li>
+                <li id="666"><a>666</a></li>
+                <li id="spirit"><a id="locale_spirit"></a></li>
+                <li id="promo"><a id="locale_promo"></a></li>
+                <li id="customized"><a id="locale_customized"></a></li>
+                <li><a id="locale_gallery"></a></li>
             </ul>
         </nav>
     </div>

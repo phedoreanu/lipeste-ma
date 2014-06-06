@@ -8,11 +8,23 @@ var patternWidth = 210;
 var patternSpacer = 10;
 var displacement = 15;
 var lastQuery = 'a';
-var currentMenuText = 'Adrenaline';
+var currentMenuId = 'adrenaline';
+var currentIndex = 0;
 
 $(document).ready(function () {
+    if (!$.cookie('lang')) {
+        $.cookie('lang', 'en', {expires: 7, path: '/'});
+    }
+    reloadLocale();
+    var selectedMenuPosition = $('li:first-child').outerWidth(true) / 2 - 23;
+    $('ul').css('background-position', selectedMenuPosition + 'px' + ' 17px');
+
     //init flags hover
-    $('#flags').children('a').hover(function () {
+    $('#flags').children('a').click(function () {
+        var language = $(this).children(':first-child').attr('alt');
+        $.cookie('lang', language, {expires: 7, path: '/'});
+        reloadLocale();
+    }).hover(function () {
         var img = $(this).children(':first-child');
         var src = img.attr('src');
         img.attr('src', src + '_c');
@@ -21,11 +33,6 @@ $(document).ready(function () {
         var src = img.attr('src');
         img.attr('src', src.substr(0, src.indexOf('_')));
     });
-
-
-    //init menu
-    var selectedMenuPosition = $('li:first-child').outerWidth(true) / 2 - 23;
-    $('ul').css('background-position', selectedMenuPosition + 'px' + ' 17px');
 
     $('#search').submit(function (event) {
         event.preventDefault();
@@ -59,19 +66,19 @@ $(document).ready(function () {
         function () {
             //menu selected position
             var ul = $('ul');
-            var index = $(this).index();
+            currentIndex = $(this).index();
             var outerWidth = $(this).outerWidth(true);
             var withUntilNow = 0;
-            currentMenuText = $(this).children('a').text();
+            currentMenuId = $(this).attr('id');
 
             $('li').each(function (i, item) {
-                if (i == index) return false;
+                if (i == currentIndex) return false;
                 withUntilNow += $(this).outerWidth(true);
             });
             var selectedMenuPosition = withUntilNow + outerWidth / 2 - 23;
             ul.css({'backgroundPosition': selectedMenuPosition + 'px 17px'});
 
-            if (index == ul.children('li').length - 1) {
+            if (currentIndex == ul.children('li').length - 1) {
                 // gallery
                 $('#gallery').show('blind', {direction: 'vertical'}, 550);
                 $('#banner').hide();
@@ -81,8 +88,8 @@ $(document).ready(function () {
                 $('#gallery').hide('blind', {direction: 'vertical'}, 300);
                 // everything else
                 $('#banner').show();
-                loadDecals(currentMenuText);
-                changeBanner(index);
+                loadDecals(currentMenuId);
+                changeBanner(currentIndex);
             }
         }
     );
@@ -91,7 +98,7 @@ $(document).ready(function () {
     loadBanner(page);
 
     //add decals
-    loadDecals(currentMenuText);
+    loadDecals(currentMenuId);
 
     var jssor_slider1 = new $JssorSlider$("gallery", {
         $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
@@ -701,15 +708,17 @@ function loadBanner(page) {
     );
 }
 
-function doSearch(keyword) {
+functio1n
+doSearch(keyword)
+{
     // seach
     if (keyword.length >= 3 && keyword !== lastQuery) {
 //        console.log("doSearch=" + keyword);
-        loadDecals(currentMenuText, keyword);
+        loadDecals(currentMenuId, keyword);
     }
     // show all results
     else if (keyword.length < 3 && lastQuery.length > 2) {
-        loadDecals(currentMenuText);
+        loadDecals(currentMenuId);
     }
     lastQuery = keyword;
 }
@@ -721,4 +730,32 @@ function filterDecals(originalDecals, keyword) {
         });
     }
     return originalDecals;
+}
+
+function useLocale() {
+    for (var key in messages) {
+        if (messages.hasOwnProperty(key)) {
+            $('#locale_' + key).text(messages[key]);
+        }
+    }
+}
+
+function reloadLocale() {
+    var lang = $.cookie('lang');
+    $.getScript('js/locale/' + lang + '.js').done(function (script, textStatus) {
+        useLocale();
+        var withUntilNow = 0;
+        var outerWidth = 0;
+        $('li').each(function (i, item) {
+            if (i < currentIndex) {
+                withUntilNow += $(this).outerWidth(true);
+            } else if (i == currentIndex) {
+                outerWidth = $(this).outerWidth(true);
+            } else {
+                return false;
+            }
+        });
+        var selectedMenuPosition = withUntilNow + outerWidth / 2 - 23;
+        $('ul').css('background-position', selectedMenuPosition + 'px' + ' 17px');
+    });
 }
