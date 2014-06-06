@@ -782,3 +782,21 @@ footer {
 .jssora15rdn {
     background-position: -320px -41px;
 }
+
+#flags {
+    position: relative;
+    top: 67px;
+    right: 0;
+    height: 20px;
+    float: right;
+    z-index: 1;
+}
+
+#flags a {
+    cursor: pointer;
+}
+
+#flags img {
+    width: 16px;
+    height: 16px;
+}

@@ -10,13 +10,19 @@ var displacement = 15;
 var lastQuery = 'a';
 var currentMenuText = 'Adrenaline';
 
-Array.prototype.find = function (match) {
-    return this.filter(function (item) {
-        return typeof item == 'string' && item.indexOf(match) > -1;
-    });
-}
-
 $(document).ready(function () {
+    //init flags hover
+    $('#flags').children('a').hover(function () {
+        var img = $(this).children(':first-child');
+        var src = img.attr('src');
+        img.attr('src', src + '_c');
+    }, function () {
+        var img = $(this).children(':first-child');
+        var src = img.attr('src');
+        img.attr('src', src.substr(0, src.indexOf('_')));
+    });
+
+
     //init menu
     var selectedMenuPosition = $('li:first-child').outerWidth(true) / 2 - 23;
     $('ul').css('background-position', selectedMenuPosition + 'px' + ' 17px');
