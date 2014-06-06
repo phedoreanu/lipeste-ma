@@ -51,48 +51,32 @@
                 {
                     "id": 1,
                     "url": "bufnita.png",
-                    "x":"0",
-					"y":"-233",
+                    "topLeft": "0, -233"
                 },
                 {
                     "id": 2,
                     "url": "girafa.png",
-                    "x":"161",
-					"y":"244",
+                    "topLeft": "161, 244"
                 },
                 {
                     "id": 3,
                     "url": "libelula_mare.png",
-                    "x":"168",
-					"y":"185",
+                    "topLeft": "168, 185"
                 },
                 {
                     "id": 4,
                     "url": "libelula_medie.png",
-                    "x":"110",
-					"y":"117",
+                    "topLeft": "110, 117"
                 },
                 {
                     "id": 5,
                     "url": "libelula_mica.png",
-                    "x":"11",
-					"y":"2",
+                    "topLeft": "11, 2"
                 },
                 {
                     "id": 6,
                     "url": "pisica.png",
-					"x":"11",
-					"y":"2",
-                },
-                {
-                    "id": 7,
-                    "url": "ptn06.png",
-                    "topLeft": "165, 0"
-                },
-                {
-                    "id": 8,
-                    "url": "ptn07.png",
-                    "topLeft": "135, 133"
+                    "topLeft": "11, 2"
                 }
             ]
         }

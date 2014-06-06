@@ -6,7 +6,7 @@
             "url": "bike_to_basics.png",
             "price": [11, 12312, 113124],
             "colors": ["black", "red", "LimeGreen", "#ffcc00", "#3399FF"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "eco, nature, environment, environnement, bike, velo, transport, propre, natura, mediu, bicicleta, bita"
         },
         {
@@ -15,7 +15,7 @@
             "url": "vertu.png",
             "price": [11, 12312, 113124],
             "colors": ["LimeGreen", "black", "white"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "nature, bio, ecology, ecologie, recycle, recycler, recyclage, planet, planete, green, vert, natura, verde, mediu, organic"
         },
         {
@@ -24,7 +24,7 @@
             "url": "la_vie_en_vert.png",
             "price": [11, 12312, 113124],
             "colors": ["LimeGreen", "black", "white"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "nature, bio, ecology, ecologie, recycle, recycler, recyclage, planet, planete, green, vert, planeta, verde, mediu, organic"
         },
         {
@@ -33,7 +33,7 @@
             "url": "moi_je_vois.png",
             "price": [11, 12312, 113124],
             "colors": ["LimeGreen", "black", "white"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "nature, bio, ecology, ecologie, recycle, recycler, recyclage, planet, planete, green, vert, verde, planeta, mediu, organic"
         }
     ]

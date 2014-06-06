@@ -6,7 +6,7 @@
             "url": "purrfect_friend.png",
             "price": [11, 12312, 113124],
             "colors": ["black", "red", "HotPink", "white", "LimeGreen", "#ffcc00", "#3399FF"],
-            "size": ["S", "M", "L", "XL"]
+            "size": ["S", "M", "L", "XL"],
 			"keywords": "pun, jeu de mots, jeu, play, wordplay, cat, chat, matou, friend, ami, prieten, joaca, mata, pisica, motan"
         },
         {
@@ -15,7 +15,7 @@
             "url": "monkey_business.png",
             "price": [11, 12312, 113124],
             "colors": ["LimeGreen", "black", "#ffcc00", "#3399FF"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "pun, jeu de mots, jeu, play, wordplay, monkey, singe, maimuta, jungle, jungla"
         },
         {
@@ -24,7 +24,7 @@
             "url": "elephantastique.png",
             "price": [11, 12312, 113124],
             "colors": ["HotPink", "LimeGreen", "#ffcc00", "#3399FF"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "pun, jeu de mots, jeu, play, wordplay, elephant, elefant, jungle, jungla, fantastic"
         },
         {
@@ -33,7 +33,7 @@
             "url": "la_vie_en_rose.png",
             "price": [11, 12312, 113124],
             "colors": ["HotPink"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "pun, jeu de mots, jeu, play, wordplay, vie, rose, pink, roz, viata, motto"
         },
         {
@@ -42,7 +42,7 @@
             "url": "daily_vitabeans.png",
             "price": [11, 12312, 113124],
             "colors": ["brown", "black", "red"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "pun, jeu de mots, jeu, play, wordplay, coffee, cafe, cafea, bean, graine, boaba, boabe"
         },
 		{
@@ -51,7 +51,7 @@
             "url": "tea_amo.png",
             "price": [11, 12312, 113124],
             "colors": ["black", "LimeGreen", "black", "white"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "pun, jeu de mots, jeu, play, wordplay, tea, the, ceai, love, amour, iubire, declaration, confession, declaratie, dragoste"
         },
 		{
@@ -60,7 +60,7 @@
             "url": "cherryful.png",
             "price": [11, 12312, 113124],
             "colors": ["black", "LimeGreen", "black", "white"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "pun, jeu de mots, jeu, play, wordplay, cherry, cerise, cireasa, cheerful, joy, happiness, joie, bonheur, bucurie, fericire"
         },
 		{
@@ -69,7 +69,7 @@
             "url": "made_in_china.png",
             "price": [11, 12312, 113124],
             "colors": ["black", "LimeGreen", "black", "white"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "pun, jeu de mots, jeu, play, wordplay, irony, china, ironie"
         }
     ]

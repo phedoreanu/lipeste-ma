@@ -6,7 +6,7 @@
             "url": "rock_hand.png",
             "price": [11, 12312, 113124],
             "colors": ["black", "LimeGreen", "white"],
-            "size": ["S", "M", "L"]
+            "size": ["S", "M", "L"],
 			"keywords": "rock, metal, hand, hard, music, death"
         },
         {
